@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+
+    <TGSI_ROLE Id_Role="1" Role_Name="Role1" />
+    <TGSI_ROLE Id_Role="2" Role_Name="Role2"/>
+
+    <TGSI_USER Id_User="1" Email1="list-user1" Password="FSDFSFQQSFQFS" Name="Test1" Address="1 rue du test" Phone_Number="0612345678" ROLE_Id_Role="1" Activated="false"/>
+    <TGSI_USER Id_User="2" Email1="list-user2" Password="dfsdfdsfsddsfqsd" Name="Test2" Address="2 rue du test" Phone_Number="0689123456" ROLE_Id_Role="2" Activated="true"/>
+    <TGSI_USER Id_User="3" Email1="fake-list-user" Password="dfsdfdsfsddsfqsd" Name="Test2" Address="2 rue du test" Phone_Number="0689123456" ROLE_Id_Role="2" Activated="true"/>
+    <TGSI_USER Id_User="4" Email1="common-user" Password="dfdfsdfdscbvbvcnyjy" Name="Test3" Address="3 rue du test" Phone_Number="0678912345" Activated="true"/>
+
+    <TGSI_SCOPE Id_Scope="1" Code="DOMAIN" Label="Site"/>
+    <TGSI_SCOPE Id_Scope="2" Code="PAGE" Label="Page"/>
+
+    <TGSI_PRODUCT Id_Product="1" Label="AuditSeo" SCOPE_Id_Scope="1" />
+    <TGSI_PRODUCT Id_Product="2" Label="AuditAxs" SCOPE_Id_Scope="2" /> 
+
+    <TGSI_CONTRACT Id_Contract="1" Label="Contract1" Begin_Date="2011-01-01 00:00:00" End_Date="2012-01-01 23:59:59" USER_Id_User="1" Url="http://www.contract2.com/" Price="1000000.32" PRODUCT_Id_Product="2"/>
+    <TGSI_CONTRACT Id_Contract="2" Label="Contract2" Begin_Date="2011-01-01 13:50:29" End_Date="2011-06-30 23:59:59" USER_Id_User="1" Url="http://www.contract1.com/" PRODUCT_Id_Product="1"/>
+
+</dataset>
