@@ -1,0 +1,367 @@
+/* Tanaguru Manager CSS: tgm.css
+ * 20110110 mfaure
+*/
+
+/* MAINTENANCE:
+ * pages are separated with ==============================================
+ * sections within pages are separated with ----------------------------------------------
+ * structure of the CSS file:
+ *   generic stuff (separated like pages)
+ *   page-specific stuff
+*/
+
+/*
+ * Utils
+ * ==============================================
+*/
+
+.clearfix {height:1%}
+.clearfix:after {
+    content:".";
+    height:0;
+    line-height:0;
+    display:block;
+    visibility:hidden;
+    clear:both;
+}
+/* =awesome buttons
+ -------------------------------------------------- */
+/* Source: http://www.zurb.com/blog_uploads/0000/0617/buttons-03.html
+   Modified to conform to YUI fonts
+*/
+.awesome,
+.awesome:visited {
+    border: 0 none;
+    background: #222 url(http://asset.open-s.com/Corporate/TGOL/Images/alert-overlay.png) repeat-x;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+}
+
+.awesome input{
+    background-color: transparent;
+    border: medium none;
+    color: white;
+    font-weight: bold;
+}
+
+.awesome:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+.awesome:active { top: 1px; }
+
+.small.awesome,
+.small.awesome:visited { font-size: 77%;}
+
+.awesome,
+.awesome:visited,
+.medium.awesome,
+.medium.awesome:visited {
+    font-size: 100%;
+    font-weight: bold;
+    /*line-height: 1;*/
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+.large.awesome,
+.large.awesome:visited,
+input.large.awesome {
+    font-size: 108%;
+    padding: 8px 14px 9px;
+}
+
+.green.awesome, .green.awesome:visited		{ background-color: #91bd09; }
+.green.awesome:hover						{ background-color: #749a02; }
+.blue.awesome, .blue.awesome:visited		{ background-color: #2daebf; }
+.blue.awesome:hover							{ background-color: #007d9a; }
+.red.awesome, .red.awesome:visited			{ background-color: #e33100; }
+.red.awesome:hover							{ background-color: #872300; }
+.magenta.awesome, .magenta.awesome:visited		{ background-color: #a9014b; }
+.magenta.awesome:hover							{ background-color: #630030; }
+.orange.awesome, .orange.awesome:visited		{ background-color: #ff5c00; }
+.orange.awesome:hover							{ background-color: #d45500; }
+.yellow.awesome, .yellow.awesome:visited		{ background-color: #ffb515; }
+.yellow.awesome:hover							{ background-color: #fc9200; }
+
+/*
+ * HTML tags
+ * ==============================================
+*/
+
+a {color:#1A1A8B;}
+
+a img:link {text-decoration: none;}
+a:link img {text-decoration: none;}
+
+h1 {color:#8E0000; font-size: 182%;}
+h2 {
+    font-size: 161.6%;
+    color: #333;
+ }
+
+code {
+    font-family: monospace;
+    font-weight: bold;
+}
+
+th, td {border: none;}
+
+caption {
+    width: 0;
+    height: 0;
+    left:-19000px;
+    position: absolute;
+}
+
+table {
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+/*
+ * Classes
+ * ==============================================
+*/
+
+/* Classes: grade
+ * ------------------------------------------------- */
+
+.grade-a {
+    font-weight: bold;
+    color:#3BA94C;
+} /* >90% */
+.grade-b {
+    font-weight: bold;
+    color:#819F44;
+} /* <90% */
+.grade-c {
+    font-weight: bold;
+    color:#AC922E;
+} /* <80% */
+.grade-d {
+    font-weight: bold;
+    color:#D77B3E;
+} /* <70% */
+.grade-e {
+    font-weight: bold;
+    color:#BB4A12;
+} /* <60% */
+.grade-f {
+    font-weight: bold;
+    color:#D02D2D;
+} /* <50% */
+.score-progression{
+    color: #000000;
+    font-size: small;
+}
+/* Classes: links
+ * ------------------------------------------------- */
+.link-underline a {text-decoration: none;}
+.link-underline a:hover {text-decoration: underline;}
+
+
+/* Classes: tables
+ * ------------------------------------------------- */
+.data-table-list th {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.odd td,
+.row-odd td {
+    background-color: #F3F3F3;
+}
+.even td,
+.row-even td {
+    background-color: #FAFAFA;
+}
+
+/* Classes: misc
+ * ------------------------------------------------- */
+.notdisplayed {
+    width: 0;
+    height: 0;
+    left:-19000px;
+    position: absolute;
+}
+
+
+/*
+ * Layout
+ * ==============================================
+*/
+
+html {
+/*    background: #C0D8E1 url(../Images/background-gradient.png) repeat-x;*/
+}
+
+body.tgm {
+    margin:auto;
+    width: 960px;
+}
+
+#meta-border {
+    background: white;
+    border: solid 1px silver;
+    margin: 0.5em 0 5em;
+    padding: 0.5em 0.5em 2em;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    border-radius:10px;
+}
+/* Content Margin Left */
+.cml {
+    margin-left: 1em;
+}
+/* Content Margin Right */
+.cmr {
+    margin-right: 1em;
+}
+/* Content Margin Top */
+.cmt {
+    margin-top: 1em;
+}
+
+/*
+ * Header
+ * ==============================================
+*/
+#hd {
+    width: 100%;
+    margin: 0.5em 0 0 0;
+}
+
+#login-box {
+    text-align: right;
+}
+
+#logout-icon {
+    vertical-align: bottom;
+    padding-right : 1em;
+}
+#sign-up {
+    padding-right : 1.5em;
+}
+
+/*
+* Body
+* ==============================================
+*/
+
+/*
+ * Footer
+ * ==============================================
+*/
+#ft {
+    width: 100%;
+    margin: 5em 0em 0.5em;
+    text-align: center;
+}
+
+/*
+ * Page : contract
+ * ==============================================
+*/
+#act-list-table .col01 {
+    text-align: left;
+}
+#act-list-table .col02 { /* date */
+    padding-right: 2em;
+    text-align: left;
+    width: 9em;
+}
+#act-list-table .col03 { /* mark */
+    padding-right: 2em;
+    text-align: right;
+    width: 2em;
+}
+#act-list-table .col04 { /* weighted mark */
+    padding-right: 2em;
+    text-align: right;
+    width: 3em;
+}
+#act-list-table .col05 { /* scope */
+    padding-left: 2em;
+    text-align: left;
+    width: 8em;
+}
+#act-list-table .col06 { /* status */
+    padding-left: 2em;
+    text-align: left;
+    width: 2em;
+}
+#act-list-table .col07 { /* detailed result link */
+    padding-left: 2em;
+    text-align: left;
+    width: 7em;
+}
+
+/*
+ * Page: home user
+ * ==============================================
+*/
+.one-project {
+    width: 90%;
+    margin: auto;
+    margin-bottom: 1em;
+    padding-bottom: 0.3em;
+    border-bottom: 1px dotted silver;
+}
+
+.project-screenshot {
+    float: left;
+    margin: 0 15px 0 0;
+}
+
+.project-name {
+    margin:0 0 0.5em 0;
+}
+
+.project-score {
+    font-size: 300%;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 0.3em;
+}
+
+.project-fail {
+    font-size: 182%;
+    font-weight: bold;
+    text-align: right;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+}
+
+.one-project .project-score {
+    vertical-align: bottom;
+}
+
+.project-status.running {
+    padding-left: 20px;
+    background: 0 50% url(../Images/gears-running.png) no-repeat;
+}
+.project-parameters {
+    margin-top: 0.5em;
+}
+.project-parameters-label {
+    font-weight: normal;
+    margin-left: 2em;
+    margin-bottom: 0em;
+    margin-top: 0.5em;
+}
+.project-parameters-value {
+    margin-left: 0em;
+    font-weight: bold;
+}
