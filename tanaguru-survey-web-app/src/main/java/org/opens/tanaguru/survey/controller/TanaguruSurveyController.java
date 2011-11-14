@@ -21,7 +21,6 @@
  */
 package org.opens.tanaguru.survey.controller;
 
-import org.opens.tanaguru.survey.exception.ForbiddenUserException;
 import org.opens.tanaguru.survey.util.TanaguruSurveyParamKeyStore;
 import org.opens.tanaguru.survey.util.TanaguruSurveyViewKeyStore;
 import org.opens.tanaguru.survey.view.data.factory.DetailedSurveyListFactory;
