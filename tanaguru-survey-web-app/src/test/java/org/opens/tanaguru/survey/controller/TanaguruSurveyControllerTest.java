@@ -38,24 +38,24 @@ public class TanaguruSurveyControllerTest extends TestCase {
     }
 
     public void testDisplayIndexPage() {
-        TanaguruSurveyController tsc = new TanaguruSurveyController();
-        tsc.setDetailedSurveyListFactory(new DetailedSurveyListFactoryMock());
-        tsc.setSynthesisDataFactory(new SynthesisDataFactoryMock());
+        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
         assertEquals(TanaguruSurveyViewKeyStore.CATEGORIES_VIEW_NAME, tsc.displayIndexPage(new ExtendedModelMap()));
     }
 
     public void testDisplayUrlListPage () {
-        TanaguruSurveyController tsc = new TanaguruSurveyController();
-        tsc.setDetailedSurveyListFactory(new DetailedSurveyListFactoryMock());
-        tsc.setSynthesisDataFactory(new SynthesisDataFactoryMock());
+        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
         assertEquals(TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_VIEW_NAME, tsc.displayUrlListPage("",new ExtendedModelMap()));
     }
 
     public void testDisplayTopListPage() {
-        TanaguruSurveyController tsc = new TanaguruSurveyController();
-        tsc.setDetailedSurveyListFactory(new DetailedSurveyListFactoryMock());
-        tsc.setSynthesisDataFactory(new SynthesisDataFactoryMock());
+        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
         assertEquals(TanaguruSurveyViewKeyStore.INDEX_VIEW_NAME, tsc.displayTopListPage(new ExtendedModelMap()));
+    }
+
+    private TanaguruSurveyController getInitialisedTanaguruSurveyController() {
+        return new TanaguruSurveyController(
+                new SynthesisDataFactoryMock(),
+                new DetailedSurveyListFactoryMock());
     }
 
 }

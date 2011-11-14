@@ -36,14 +36,14 @@ public class ForbiddenUserException extends RuntimeException{
         this.userName = userName;
     }
 
-    private static final String forbiddenUserExceptionMsgKey = "forbidden-user-exception-msg-key";
-    private static final String nullUserExceptionMsgKey = "null-user-exception-msg-key";
+    private static final String FORBIDDEN_USER_EXCEPTION_MSG_KEY = "forbidden-user-exception-msg-key";
+    private static final String NULL_USER_EXCEPTION_MSG_KEY = "null-user-exception-msg-key";
 
     public String getExceptionMsgKey() {
         if (userName != null) {
-            return forbiddenUserExceptionMsgKey;
+            return FORBIDDEN_USER_EXCEPTION_MSG_KEY;
         }
-        return nullUserExceptionMsgKey;
+        return NULL_USER_EXCEPTION_MSG_KEY;
     }
 
     private static final long serialVersionUID = 6868141361082941720L;

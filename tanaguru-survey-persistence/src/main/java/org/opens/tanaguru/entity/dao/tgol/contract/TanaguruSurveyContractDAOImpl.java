@@ -43,11 +43,6 @@ public class TanaguruSurveyContractDAOImpl extends AbstractJPADAO<Contract, Long
 
     private ContractResultFactory contractResultFactory;
 
-    @Autowired
-    public void setContractResultFactory(ContractResultFactory contractResultFactory) {
-        this.contractResultFactory = contractResultFactory;
-    }
-
     private static final String FIND_NUMBER_OF_CONTRACT_QUERY =
             "SELECT count(Id_Contract) FROM TGSI_CONTRACT as tc "
             + "INNER JOIN TGSI_USER as tu on (tu.Id_User=tc.USER_Id_User) "
@@ -63,6 +58,16 @@ public class TanaguruSurveyContractDAOImpl extends AbstractJPADAO<Contract, Long
         +"WHERE u.Email1 like :listUser "
         +"ORDER BY wrs.Raw_Mark DESC "
         +"LIMIT :nbOfResults ";
+
+    /**
+     * Constructor
+     * @param contractResultFactory
+     */
+    @Autowired
+    public TanaguruSurveyContractDAOImpl(ContractResultFactory contractResultFactory) {
+        super();
+        this.contractResultFactory = contractResultFactory;
+    }
 
     /**
      * Native sql query :

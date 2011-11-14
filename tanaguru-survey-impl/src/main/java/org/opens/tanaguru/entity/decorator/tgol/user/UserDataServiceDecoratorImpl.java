@@ -37,8 +37,13 @@ public class UserDataServiceDecoratorImpl extends AbstractGenericDataService<Use
 
     private UserDataService decoratedUserDataService; // the userDataService instance being decorated
 
+    /**
+     * Constructor
+     * @param userDataService
+     */
     @Autowired
-    public void setUserDataService (UserDataService userDataService) {
+    public UserDataServiceDecoratorImpl (UserDataService userDataService) {
+        super();
         this.decoratedUserDataService = userDataService;
     }
 

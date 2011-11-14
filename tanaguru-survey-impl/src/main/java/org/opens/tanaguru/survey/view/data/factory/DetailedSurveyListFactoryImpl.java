@@ -21,6 +21,7 @@
  */
 package org.opens.tanaguru.survey.view.data.factory;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -60,8 +61,8 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
             throw new ForbiddenUserException(surveyListId);
         }
         User user = getUserDataServiceDecorator().getUserFromEmail(surveyListId);
-        if (user == null || ((user.getName() == null || user.getName().isEmpty()) &&
-                (user.getFirstName() == null || user.getFirstName().isEmpty()))) {
+        if (user == null || 
+                (isFieldNotEmpty(user.getName()) && isFieldNotEmpty(user.getFirstName())) ) {
             throw new ForbiddenUserException(surveyListId);
         }
         DetailedSurveyList detailedSurvey = new DetailedSurveyListImpl();
@@ -130,9 +131,19 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
     }
 
     /**
+     * Test if a string field is null or empty
+     * @param field
+     * @return
+     */
+    private boolean isFieldNotEmpty(String field) {
+        return (field == null || field.isEmpty());
+    }
+
+    /**
      * private class to sort contract regarding the label alphabetical order
      */
-    private static class ContractComparator implements Comparator<Contract> {
+    private static class ContractComparator implements Comparator<Contract>, Serializable {
+        private static final long serialVersionUID = -6498732084039369192L;
         @Override
         public int compare(Contract t1, Contract t2) {
             return t1.getLabel().compareTo(t2.getLabel());

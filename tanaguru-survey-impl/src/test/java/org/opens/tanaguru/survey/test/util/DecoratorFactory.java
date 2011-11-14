@@ -37,16 +37,16 @@ import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDataServiceMock;
 public final class DecoratorFactory {
 
     public static UserDataServiceDecorator getUserDataServiceDecorator() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
+        UserDataServiceDecoratorImpl udsd =
+                new UserDataServiceDecoratorImpl(new UserDataServiceMock());
         udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
         return udsd;
     }
 
     public static ContractDataServiceDecorator getContractDataServiceDecorator() {
-        ContractDataServiceDecoratorImpl cdsd = new ContractDataServiceDecoratorImpl();
+        ContractDataServiceDecoratorImpl cdsd =
+                new ContractDataServiceDecoratorImpl(new ContractDataServiceMock());
         cdsd.setEntityDao(new ContractDAOMock());
-        cdsd.setContractDataService(new ContractDataServiceMock());
         return cdsd;
     }
     

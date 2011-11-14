@@ -41,19 +41,20 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class TanaguruSurveyController {
 
     private DetailedSurveyListFactory detailedSurveyListFactory;
-    @Autowired
-    public void setDetailedSurveyListFactory(DetailedSurveyListFactory detailedSurveyListFactory) {
-        this.detailedSurveyListFactory = detailedSurveyListFactory;
-    }
-    
     private SynthesisDataFactory synthesisDataFactory;
-    @Autowired
-    public void setSynthesisDataFactory(SynthesisDataFactory synthesisDataFactory) {
-        this.synthesisDataFactory = synthesisDataFactory;
-    }
 
-    public TanaguruSurveyController() {
+    /**
+     * 
+     * @param synthesisDataFactory
+     * @param detailedSurveyListFactory
+     */
+    @Autowired
+    public TanaguruSurveyController(
+            SynthesisDataFactory synthesisDataFactory,
+            DetailedSurveyListFactory detailedSurveyListFactory) {
         super();
+        this.detailedSurveyListFactory = detailedSurveyListFactory;
+        this.synthesisDataFactory = synthesisDataFactory;
     }
 
     @RequestMapping(value=TanaguruSurveyViewKeyStore.CATEGORIES_URL, method=RequestMethod.GET)

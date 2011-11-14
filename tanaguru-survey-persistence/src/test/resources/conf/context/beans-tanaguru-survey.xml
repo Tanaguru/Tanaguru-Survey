@@ -9,7 +9,7 @@
     <bean id="userFactory" class="org.opens.tgol.entity.factory.user.UserFactoryImpl"/>
     
     <bean id="tsContractDAO" class="org.opens.tanaguru.entity.dao.tgol.contract.TanaguruSurveyContractDAOImpl">
-        <property name="contractResultFactory" ref="contractResultFactory"/>
+        <constructor-arg ref="contractResultFactory"/>
     </bean>
     <bean id="contractFactory" class="org.opens.tgol.entity.factory.contract.ContractFactoryImpl"/>
     <bean id="contractResultFactory" class="org.opens.tanaguru.survey.view.data.factory.ContractResultFactoryMock"/>

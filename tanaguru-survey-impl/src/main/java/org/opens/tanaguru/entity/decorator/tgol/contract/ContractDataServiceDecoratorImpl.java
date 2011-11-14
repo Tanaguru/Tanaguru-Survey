@@ -40,8 +40,13 @@ public class ContractDataServiceDecoratorImpl extends AbstractGenericDataService
 
     private ContractDataService decoratedContractDataService; // the contractDataService instance being decorated
 
+    /**
+     * Constructor
+     * @param contractDataService
+     */
     @Autowired
-    public void setContractDataService (ContractDataService contractDataService) {
+    public ContractDataServiceDecoratorImpl (ContractDataService contractDataService) {
+        super();
         this.decoratedContractDataService = contractDataService;
     }
 
