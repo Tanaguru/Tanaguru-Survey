@@ -20,8 +20,7 @@
                 <value>footer-I18N</value>
                 <value>index-I18N</value>
                 <value>top-bar-I18N</value>
-<!--                <value>top-list-I18N</value>
-                <value>url-list-I18N</value>-->
+                <value>top5-table-I18N</value>
 	    </list>
 	</property>
     </bean>
