@@ -51,7 +51,7 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
     @Override
     public DetailedSurveyList createDetailedSurveyList(
             String surveyListId,
-            boolean addContractList) throws ForbiddenUserException {
+            boolean addContractList) {
         if (surveyListId == null || surveyListId.isEmpty()) {
             LOGGER.warn("try to create surveyList from null user.");
             throw new ForbiddenUserException();

@@ -21,7 +21,6 @@
  */
 package org.opens.tanaguru.survey.view.data.factory;
 
-import org.opens.tanaguru.survey.exception.ForbiddenUserException;
 import org.opens.tanaguru.survey.view.data.DetailedSurveyList;
 
 /**
@@ -39,6 +38,6 @@ public interface DetailedSurveyListFactory extends SurveyListFactory{
      */
     DetailedSurveyList createDetailedSurveyList(
             String userName,
-            boolean addContractList) throws ForbiddenUserException;
+            boolean addContractList) ;
 
 }
