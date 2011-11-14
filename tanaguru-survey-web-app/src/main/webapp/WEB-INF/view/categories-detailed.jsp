@@ -37,7 +37,18 @@
                 </div><!-- class="span16" -->
             </div><!-- class="row" -->
             <div class="row">
-                <div class="span10">
+                <div class="span16">
+                    <h2>
+                        <fmt:message key="categories-detailed.top"/>
+                    </h2>
+                    <c:set var="captionClass" scope="page" value=""/>
+                    <c:set var="topContractCollection" scope="page" value="${detailedSurveyList.topContractCollection}"/>
+                    <c:set var="categoryName" scope="page" value="${detailedSurveyList.name}"/>
+                    <%@include file="template/top5-table.jsp" %>
+                </div><!-- class="span16" -->
+            </div><!-- class="row" -->
+            <div class="row">
+                <div class="span16">
                     <h2>
                         <fmt:message key="categories-detailed.list">
                             <fmt:param>${detailedSurveyList.name}</fmt:param>
@@ -52,17 +63,7 @@
                         <li><a href="${contract.url}">${contract.label}</a></li>
                 </c:forEach>
                     </ul>
-                </div><!-- class="span10" -->
-                <div class="span6">
-                    <h2>
-                        <fmt:message key="categories-detailed.top"/>
-                    </h2>
-                    <ol>
-                        <c:forEach var="contractResult" items="${detailedSurveyList.topContractCollection}"varStatus="pSurveyList" begin="0" end="4">
-                        <li><a href="${contractResult.url}">${contractResult.label}</a> <%@include file="template/score.jsp" %> </li>
-                        </c:forEach>
-                    </ol>
-                </div><!-- class="span6" -->
+                </div><!-- class="span16" -->
             </div><!-- class="row" -->
             <%@include file="template/footer.jsp" %>
         </div><!-- class="container" -->

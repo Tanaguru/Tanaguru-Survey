@@ -38,11 +38,10 @@
             </c:if>
                 <div class="span8">
                     <h3>${surveyList.name}</h3>
-                    <ol class="top5">
-                        <c:forEach var="contractResult" items="${surveyList.topContractCollection}" begin="0" end="4">
-                        <li><a href="${contractResult.url}">${contractResult.label}</a> <%@include file="template/score.jsp" %> </li>
-                        </c:forEach>
-                    </ol>
+                    <c:set var="captionClass" scope="page" value="visually-hidden"/>
+                    <c:set var="topContractCollection" scope="page" value="${surveyList.topContractCollection}"/>
+                    <c:set var="categoryName" scope="page" value="${surveyList.name}"/>
+                    <%@include file="template/top5-table.jsp" %>
                     <p>
                         <a class="btn" href="<c:url value="/categories-detailed.html?surveyList=${surveyList.id}"/>">
                             <fmt:message key="index.seeCategory"><fmt:param>${surveyList.name}</fmt:param></fmt:message>&raquo;

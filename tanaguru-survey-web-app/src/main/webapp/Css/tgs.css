@@ -53,6 +53,8 @@ body:hover .visually-hidden button {
 .link-underline-hover a {text-decoration: none;}
 .link-underline-hover a:hover {text-decoration: underline;}
 
+/* =align
+ -------------------------------------------------- */
 .align-right { text-align: right;}
 .align-left { text-align: left;}
 .align-center { text-align: center;}
@@ -61,20 +63,36 @@ body:hover .visually-hidden button {
 .valign-middle {vertical-align: middle;}
 .valign-bottom {vertical-align: bottom}
 
-.disabled {color: gray;}
+/* Classes: grade
+ * ------------------------------------------------- */
 
-.msg-negative-return {color: red;}
-.msg-positive-return {color: green;}
-.msg-remark {
-    border: solid 1px orange;
-    background-color: silver;
-}
-.msg-remark-small {
-    font-size: 85%;
-    font-style: italic;
-}
-.mandatory {
-    color: red;
+.grade-a {
+    font-weight: bold;
+    color:#3BA94C;
+} /* >90% */
+.grade-b {
+    font-weight: bold;
+    color:#819F44;
+} /* <90% */
+.grade-c {
+    font-weight: bold;
+    color:#AC922E;
+} /* <80% */
+.grade-d {
+    font-weight: bold;
+    color:#D77B3E;
+} /* <70% */
+.grade-e {
+    font-weight: bold;
+    color:#BB4A12;
+} /* <60% */
+.grade-f {
+    font-weight: bold;
+    color:#D02D2D;
+} /* <50% */
+.score-progression{
+    color: #000000;
+    font-size: small;
 }
 
 /*
@@ -84,6 +102,22 @@ body:hover .visually-hidden button {
 
 .breadcrumb .divider:after {
     content: ">";
+}
+
+/* focusable content: anything w/ tabindex >=0 is focusable */
+abbr:focus, acronym:focus, address:focus, b:focus,
+base:focus, big:focus, blockquote:focus, br:focus, canvas:focus, caption:focus,
+center:focus, cite:focus, code:focus, col:focus, colgroup:focus, dd:focus,
+del:focus, dfn:focus, dir:focus, div:focus, dl:focus, dt:focus, em:focus,
+fieldset:focus, font:focus, form:focus, h1:focus, h2:focus, h3:focus, h4:focus,
+h5:focus, h6:focus, hr:focus, i:focus, img:focus, ins:focus,
+kbd:focus, label:focus, legend:focus, li:focus, link:focus, menu:focus,
+ol:focus, p:focus, pre:focus, q:focus, s:focus, samp:focus,
+small:focus, span:focus, strike:focus, strong:focus, sub:focus, sup:focus,
+table:focus, tbody:focus, td:focus, tfoot:focus, th:focus, thead:focus,
+tr:focus, tt:focus, u:focus, ul:focus, var:focus {
+  /* Don't specify the outline-color, we should always use initial value. */
+   outline: 1px dotted;
 }
 
 /*
@@ -110,11 +144,38 @@ code {
 #bg {
 }
 
+/* top5
+ -------------------------------------------------- */
+.top5-rank1 { font-size: 30px;}
+.top5-rank2 { font-size: 25px;}
+.top5-rank3 { font-size: 20px;}
+
 /*
  * Footer
  * ==============================================
 */
-#ft {
+footer {padding-top: 0;}
+#footer-upper {
+    background-color: #f8f8f8;
+    padding-top: 17px;
+}
+
+#footer-down {
+    margin-top: 17px;
+}
+
+#footer-upper>div,
+#footer-down>div {
+    width: 940px;
+    margin: auto;
+}
+
+footer h2 {
+    border-bottom: thin solid #E1E1E1;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    font-size: 13px;
+    line-height: 20px;
 }
 
 /*
@@ -152,31 +213,3 @@ code {
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
 }
-
-/* Classes: grade
- * ------------------------------------------------- */
-
-.grade-a {
-    font-weight: bold;
-    color:#3BA94C;
-} /* >90% */
-.grade-b {
-    font-weight: bold;
-    color:#819F44;
-} /* <90% */
-.grade-c {
-    font-weight: bold;
-    color:#AC922E;
-} /* <80% */
-.grade-d {
-    font-weight: bold;
-    color:#D77B3E;
-} /* <70% */
-.grade-e {
-    font-weight: bold;
-    color:#BB4A12;
-} /* <60% */
-.grade-f {
-    font-weight: bold;
-    color:#D02D2D;
-} /* <50% */
