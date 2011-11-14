@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import org.apache.log4j.Logger;
+import org.opens.tanaguru.entity.decorator.tgol.contract.ContractDataServiceDecorator;
 import org.opens.tanaguru.entity.decorator.tgol.user.UserDataServiceDecorator;
 import org.opens.tanaguru.survey.view.data.SurveyList;
 import org.opens.tanaguru.survey.view.data.SurveyListImpl;
@@ -37,9 +38,9 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class SurveyListFactoryImpl implements SurveyListFactory {
 
-    private static final Logger LOGGER = Logger.getLogger(DetailedSurveyListFactoryImpl.class);
+    private static final Logger LOGGER = Logger.getLogger(SurveyListFactoryImpl.class);
 
-    private String userListPrefix;
+    private String userListPrefix = "";
     @Override
     public String getUserListPrefix() {
         return userListPrefix;
@@ -47,7 +48,9 @@ public class SurveyListFactoryImpl implements SurveyListFactory {
 
     @Override
     public void setUserListPrefix(String userListPrefix) {
-        this.userListPrefix = userListPrefix;
+        if (userListPrefix != null) {
+            this.userListPrefix = userListPrefix;
+        }
     }
 
     private UserDataServiceDecorator userDataServiceDecorator;
@@ -58,6 +61,16 @@ public class SurveyListFactoryImpl implements SurveyListFactory {
     @Autowired
     public void setUserDataServiceDecorator(UserDataServiceDecorator userDataServiceDecorator) {
         this.userDataServiceDecorator = userDataServiceDecorator;
+    }
+
+    private ContractDataServiceDecorator contractDataService;
+    public ContractDataServiceDecorator getContractDataService() {
+        return contractDataService;
+    }
+    
+    @Autowired
+    public void setContractDataService(ContractDataServiceDecorator contractDataService) {
+        this.contractDataService = contractDataService;
     }
 
     @Override
@@ -76,6 +89,7 @@ public class SurveyListFactoryImpl implements SurveyListFactory {
         surveyList.setId(user.getEmail1());
         surveyList.setName(user.getName());
         surveyList.setLabel(user.getFirstName());
+        surveyList.setNumberOfContracts(contractDataService.getAllContractsByUser(user).size());
         return surveyList;
     }
 

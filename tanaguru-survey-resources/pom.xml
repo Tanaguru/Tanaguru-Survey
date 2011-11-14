@@ -20,6 +20,10 @@
             <artifactId>tgol-resources</artifactId>
         </dependency>
         <dependency>
+            <groupId>${tanaguruGroupId}</groupId>
+            <artifactId>tanaguru-resources</artifactId>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>

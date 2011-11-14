@@ -23,7 +23,9 @@ package org.opens.tanaguru.survey.view.data;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.LinkedList;
 import org.opens.tgol.entity.contract.Contract;
+
 
 /**
  *
@@ -48,28 +50,45 @@ public final class DetailedSurveyListImpl extends SurveyListImpl implements Deta
         }
     }
 
+    private Collection<ContractResult> topContractResultCollection = new LinkedList<ContractResult>();
+    @Override
+    public Collection<ContractResult> getTopContractCollection() {
+        return topContractResultCollection;
+    }
+
+    @Override
+    public void setTopContractCollection(Collection<ContractResult> contractResultCollection) {
+        if (contractResultCollection != null) {
+            this.topContractResultCollection.addAll(contractResultCollection);
+        }
+    }
+
     /**
      * Default constructor
      */
     public DetailedSurveyListImpl() {}
 
     /**
-     *
+     * 
+     * @param id
      * @param name
      * @param label
      * @param description
+     * @param contractCollection
      */
     public DetailedSurveyListImpl(
             String id,
             String name,
             String label,
             String description,
-            Collection<Contract> contractCollection) {
+            Collection<Contract> contractCollection,
+            Collection<ContractResult> topContractCollection) {
         setId(id);
         setName(name);
         setLabel(label);
         setDescription(description);
         setContractCollection(contractCollection);
+        setTopContractCollection(topContractCollection);
     }
 
 }

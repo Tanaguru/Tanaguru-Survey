@@ -98,6 +98,11 @@
                 <version>${tanaguruVersion}</version>
             </dependency>
             <dependency>
+                <groupId>${tanaguruGroupId}</groupId>
+                <artifactId>tanaguru-resources</artifactId>
+                <version>${tanaguruVersion}</version>
+            </dependency>
+            <dependency>
                 <groupId>${springGroupId}</groupId>
                 <artifactId>spring-core</artifactId>
                 <version>${springVersion}</version>

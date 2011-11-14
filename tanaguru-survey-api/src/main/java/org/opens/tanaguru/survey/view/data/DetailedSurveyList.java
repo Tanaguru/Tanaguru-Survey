@@ -42,4 +42,16 @@ public interface DetailedSurveyList extends SurveyList{
      */
     void setContractCollection(Collection<Contract> contractCollection);
 
+    /**
+     *
+     * @return
+     */
+    Collection<ContractResult> getTopContractCollection();
+
+    /**
+     * 
+     * @param contractInfoCollection
+     */
+    void setTopContractCollection(Collection<ContractResult> contractCollection);
+
 }

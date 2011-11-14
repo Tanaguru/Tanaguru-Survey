@@ -71,27 +71,41 @@ public class SurveyListImpl implements SurveyList {
         this.description = surveyListDescription;
     }
 
+    int numberOfContracts=0;
+    @Override
+    public int getNumberOfContracts() {
+        return numberOfContracts;
+    }
+
+    @Override
+    public void setNumberOfContracts(int numberOfContracts) {
+        this.numberOfContracts = numberOfContracts;
+    }
+
     /**
      * Default constructor
      */
     public SurveyListImpl() {}
 
     /**
-     *
+     * 
      * @param id
      * @param name
      * @param label
      * @param description
+     * @param numberOfContracts
      */
     public SurveyListImpl(
             String id,
             String name,
             String label,
-            String description) {
+            String description,
+            int numberOfContracts) {
        this.id = id;
        this.name = name;
        this.label = label;
        this.description = description;
+       this.numberOfContracts = numberOfContracts;
     }
 
 }

@@ -28,10 +28,14 @@ package org.opens.tanaguru.survey.util;
 public final class TanaguruSurveyViewKeyStore {
 
     public static final String INDEX_VIEW_NAME="index";
+    public static final String CATEGORIES_VIEW_NAME="categories";
+    public static final String CATEGORIES_DETAILED_VIEW_NAME="categories-detailed";
     public static final String URL_LIST_VIEW_NAME="url-list";
     public static final String TOP_LIST_VIEW_NAME="top-list";
 
     public static final String INDEX_URL="/index";
+    public static final String CATEGORIES_URL="/categories";
+    public static final String CATEGORIES_DETAILED_URL="/categories-detailed";
     public static final String URL_LIST_URL="/url-list";
     public static final String TOP_LIST_URL="/top-list";
     

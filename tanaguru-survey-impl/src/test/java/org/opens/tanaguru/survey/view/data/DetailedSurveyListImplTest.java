@@ -24,8 +24,7 @@ package org.opens.tanaguru.survey.view.data;
 import java.util.Collection;
 import java.util.HashSet;
 import junit.framework.TestCase;
-import org.opens.tgol.entity.contract.Contract;
-import org.opens.tgol.entity.contract.ContractImpl;
+import org.opens.tanaguru.survey.test.util.EntityFactory;
 
 /**
  *
@@ -40,7 +39,7 @@ public class DetailedSurveyListImplTest extends TestCase {
     public void testSetGetContractCollection() {
         DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl();
         assertTrue(detailedSurveyList.getContractCollection().isEmpty());
-        detailedSurveyList.setContractCollection(getContractCollection());
+        detailedSurveyList.setContractCollection(EntityFactory.getContractCollection());
         assertEquals(2, detailedSurveyList.getContractCollection().size());
     }
 
@@ -63,35 +62,35 @@ public class DetailedSurveyListImplTest extends TestCase {
     }
 
     public void testConstructor() {
-        DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl("list-test1", "Name1", "Label1", "Description1", null);
+        DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl("list-test1", "Name1", "Label1", "Description1", null, null);
         assertEquals("list-test1", detailedSurveyList.getId());
         assertEquals("Description1", detailedSurveyList.getDescription());
         assertEquals("Label1", detailedSurveyList.getLabel());
         assertEquals("Name1", detailedSurveyList.getName());
         assertTrue(detailedSurveyList.getContractCollection().isEmpty());
-        detailedSurveyList = new DetailedSurveyListImpl("list-test2", "Name2", "Label2", "Description2", getContractCollection());
+        assertTrue(detailedSurveyList.getTopContractCollection().isEmpty());
+        detailedSurveyList = new DetailedSurveyListImpl("list-test2", "Name2", "Label2", "Description2", EntityFactory.getContractCollection(), getContractInfoCollection());
         assertEquals("list-test2", detailedSurveyList.getId());
         assertEquals("Description2", detailedSurveyList.getDescription());
         assertEquals("Label2", detailedSurveyList.getLabel());
         assertEquals("Name2", detailedSurveyList.getName());
         assertEquals(2,detailedSurveyList.getContractCollection().size());
+        assertEquals(2,detailedSurveyList.getTopContractCollection().size());
     }
 
-    private Collection<Contract> getContractCollection() {
-        Contract contract1 = new ContractImpl();
-        contract1.setUrl("http://www.mock-url1.org/");
-        Contract contract2 = new ContractImpl();
-        contract2.setUrl("http://www.mock-url2.org/");
-        Contract contract3 = new ContractImpl();
-        contract3.setUrl(null);
-        Contract contract4 = new ContractImpl();
-        contract4.setUrl("");
-        Collection<Contract> contractSet = new HashSet<Contract>();
-        contractSet.add(contract1);
-        contractSet.add(contract2);
-        contractSet.add(contract3);
-        contractSet.add(contract4);
-        return contractSet;
+    private Collection<ContractResult> getContractInfoCollection() {
+        ContractResult contractResult1 = new ContractResultImpl();
+        contractResult1.setUrl("http://www.mock-url1.org/");
+        contractResult1.setLabel("mock-label1");
+        contractResult1.setMark(70);
+        ContractResult contractResult2 = new ContractResultImpl();
+        contractResult2.setUrl("http://www.mock-url2.org/");
+        contractResult2.setLabel("mock-label2");
+        contractResult2.setMark(70);
+        Collection<ContractResult> ContractInfoSet = new HashSet<ContractResult>();
+        ContractInfoSet.add(contractResult1);
+        ContractInfoSet.add(contractResult2);
+        return ContractInfoSet;
     }
 
 }

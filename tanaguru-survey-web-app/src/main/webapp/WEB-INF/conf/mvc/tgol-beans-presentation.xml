@@ -12,8 +12,17 @@
     <bean id="surveyListFactory" class="org.opens.tanaguru.survey.view.data.factory.SurveyListFactoryImpl">
         <property name="userListPrefix" value="${user-list-prefix}"/>
     </bean>
+
     <bean id="detailedSurveyListFactory" class="org.opens.tanaguru.survey.view.data.factory.DetailedSurveyListFactoryImpl">
         <property name="userListPrefix" value="${user-list-prefix}"/>
+        <property name="nbOfTopElements" value="${number-of-top-elements}"/>
     </bean>
+
+    <bean id="synthesisDataFactory" class="org.opens.tanaguru.survey.view.data.factory.SynthesisDataFactoryImpl">
+        <property name="spotlightList" value="${picked-list}"/>
+        <property name="userListPrefix" value="${user-list-prefix}"/>
+    </bean>
+
+    <bean id="contractResultFactory" class="org.opens.tanaguru.survey.view.data.factory.ContractResultFactoryImpl"/>
 
 </beans>

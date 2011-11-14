@@ -21,11 +21,14 @@
  */
 package org.opens.tanaguru.entity.decorator.tgol.contract.mock;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import org.opens.tanaguru.sdk.entity.dao.GenericDAO;
 import org.opens.tanaguru.sdk.entity.factory.GenericFactory;
+import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tgol.entity.contract.Contract;
 import org.opens.tgol.entity.product.Product;
 import org.opens.tgol.entity.service.contract.ContractDataService;
@@ -37,16 +40,64 @@ import org.opens.tgol.entity.user.User;
  */
 public class ContractDataServiceMock implements ContractDataService {
 
-    public ContractDataServiceMock(){}
+    private List<Contract> contractList = new LinkedList<Contract>();
+    
+    public ContractDataServiceMock(){
+        User user1 = EntityFactory.createUser(
+                "user1@tanaguru.org",
+                "user1",
+                "user1FirstName",
+                true);
+        User user2 = EntityFactory.createUser(
+                "user2@tanaguru.org",
+                "user2",
+                "user2FirstName",
+                true);
+        Product product1 = EntityFactory.createProduct(
+                "MOCK_PRODUCT1",
+                "mock product 1");
+        contractList.add(EntityFactory.createContract(
+                "http://www.mock-url1",
+                "mock-label-data-service1",
+                user1,
+                product1));
+        contractList.add(EntityFactory.createContract(
+                "http://www.mock-url2",
+                "mock-label-data-service2",
+                user1,
+                product1));
+        contractList.add(EntityFactory.createContract(
+                "http://www.mock-url3",
+                "mock-label-data-service3",
+                user2,
+                product1));
+        contractList.add(EntityFactory.createContract(
+                "http://www.mock-url4",
+                "mock-label-data-service4",
+                user2,
+                product1));
+    }
 
     @Override
     public Collection<Contract> getAllContractsByUser(User user) {
-        return new HashSet<Contract>();
+        Collection<Contract> localContractList = new ArrayList<Contract>();
+        for (Contract contract : contractList) {
+            if (contract.getUser().getEmail1().equalsIgnoreCase(user.getEmail1())) {
+                localContractList.add(contract);
+            }
+        }
+        return localContractList;
     }
 
     @Override
     public Collection<Contract> getAllContractsByProduct(Product product) {
-        return new HashSet<Contract>();
+        Collection<Contract> localContractList = new ArrayList<Contract>();
+        for (Contract contract : contractList) {
+            if (contract.getProduct().getCode().equalsIgnoreCase(product.getCode())) {
+                localContractList.add(contract);
+            }
+        }
+        return localContractList;
     }
 
     @Override

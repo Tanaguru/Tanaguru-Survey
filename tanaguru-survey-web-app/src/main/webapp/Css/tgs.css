@@ -1,0 +1,182 @@
+/*
+    Document   : Obs
+    Created on : 2011-11-01
+    Author     : mfaure
+    Description:
+*/
+
+/*
+ * Utils
+ * ==============================================
+*/
+
+/* =clearfix
+ -------------------------------------------------- */
+/* http://nicolasgallagher.com/micro-clearfix-hack/ */
+/* For modern browsers */
+.clearfix:before,
+.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after {
+    clear:both;
+}
+/* For IE 6/7 (trigger hasLayout) */
+.clearfix {
+    zoom:1;
+}
+
+/* =visually-hidden
+ -------------------------------------------------- */
+/* http://yaccessibilityblog.com/library/css-clip-hidden-content.html */
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  padding:0 !important;
+  border:0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+}
+body:hover .visually-hidden a,
+body:hover .visually-hidden input,
+body:hover .visually-hidden button {
+  display: none !important;
+}
+
+/* =link-underline
+ -------------------------------------------------- */
+.link-underline a {text-decoration: none;}
+.link-underline a:hover {text-decoration: underline;}
+.link-underline-hover a {text-decoration: none;}
+.link-underline-hover a:hover {text-decoration: underline;}
+
+.align-right { text-align: right;}
+.align-left { text-align: left;}
+.align-center { text-align: center;}
+
+.valign-top {vertical-align: top;}
+.valign-middle {vertical-align: middle;}
+.valign-bottom {vertical-align: bottom}
+
+.disabled {color: gray;}
+
+.msg-negative-return {color: red;}
+.msg-positive-return {color: green;}
+.msg-remark {
+    border: solid 1px orange;
+    background-color: silver;
+}
+.msg-remark-small {
+    font-size: 85%;
+    font-style: italic;
+}
+.mandatory {
+    color: red;
+}
+
+/*
+ * Override Bootstap
+ * ==============================================
+*/
+
+.breadcrumb .divider:after {
+    content: ">";
+}
+
+/*
+ * HTML tags
+ * ==============================================
+*/
+body {padding-top: 60px;}
+code {
+     font-family: monospace;
+     font-weight: bold;
+}
+
+/*
+ * Header
+ * ==============================================
+*/
+
+#home h1 {
+}
+/*
+ * Body
+ * ==============================================
+*/
+#bg {
+}
+
+/*
+ * Footer
+ * ==============================================
+*/
+#ft {
+}
+
+/*
+ * Page: home
+ * ==============================================
+*/
+
+
+/*
+ * Page: article
+ * ==============================================
+*/
+
+/* article headers
+ -------------------------------------------------- */
+
+/* article content
+ -------------------------------------------------- */
+
+/*
+ * Print styles (from Html5 Boilerplate)
+ * ==============================================
+*/
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}
+
+/* Classes: grade
+ * ------------------------------------------------- */
+
+.grade-a {
+    font-weight: bold;
+    color:#3BA94C;
+} /* >90% */
+.grade-b {
+    font-weight: bold;
+    color:#819F44;
+} /* <90% */
+.grade-c {
+    font-weight: bold;
+    color:#AC922E;
+} /* <80% */
+.grade-d {
+    font-weight: bold;
+    color:#D77B3E;
+} /* <70% */
+.grade-e {
+    font-weight: bold;
+    color:#BB4A12;
+} /* <60% */
+.grade-f {
+    font-weight: bold;
+    color:#D02D2D;
+} /* <50% */

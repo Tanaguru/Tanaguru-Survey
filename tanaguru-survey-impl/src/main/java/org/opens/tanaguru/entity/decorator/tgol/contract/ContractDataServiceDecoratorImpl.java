@@ -21,8 +21,15 @@
  */
 package org.opens.tanaguru.entity.decorator.tgol.contract;
 
+import java.util.Collection;
+import org.opens.tanaguru.entity.dao.tgol.contract.TanaguruSurveyContractDAO;
 import org.opens.tanaguru.sdk.entity.service.AbstractGenericDataService;
+import org.opens.tanaguru.survey.view.data.ContractResult;
 import org.opens.tgol.entity.contract.Contract;
+import org.opens.tgol.entity.product.Product;
+import org.opens.tgol.entity.service.contract.ContractDataService;
+import org.opens.tgol.entity.user.User;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -31,31 +38,31 @@ import org.opens.tgol.entity.contract.Contract;
 public class ContractDataServiceDecoratorImpl extends AbstractGenericDataService<Contract, Long>
         implements ContractDataServiceDecorator{
 
-//    private UserDataService decoratedUserDataService; // the userDataService instance being decorated
-//
-//    @Autowired
-//    public void setUserDataService (UserDataService userDataService) {
-//        this.decoratedUserDataService = userDataService;
-//    }
-//
-//    @Override
-//    public List<User> getListUser() {
-//        return ((TanaguruSurveyUserDAO)entityDao).findListUser();
-//    }
-//
-//    @Override
-//    public User getUserFromEmail(String email) {
-//        return decoratedUserDataService.getUserFromEmail(email);
-//    }
-//
-//    @Override
-//    public User getUserFromName(String name) {
-//        return decoratedUserDataService.getUserFromName(name);
-//    }
-//
-//    @Override
-//    public boolean isAccountActivated(String email) {
-//        return decoratedUserDataService.isAccountActivated(email);
-//    }
+    private ContractDataService decoratedContractDataService; // the contractDataService instance being decorated
+
+    @Autowired
+    public void setContractDataService (ContractDataService contractDataService) {
+        this.decoratedContractDataService = contractDataService;
+    }
+
+    @Override
+    public int getNumberOfContractsFromPrefix(String prefix) {
+        return ((TanaguruSurveyContractDAO)entityDao).findNumberOfContractsFromPrefix(prefix);
+    }
+
+    @Override
+    public Collection<ContractResult> getTopNContractsFromListUser(String listUser, int nbOfContracts) {
+        return ((TanaguruSurveyContractDAO)entityDao).findTopNContractsFromListUser(listUser, nbOfContracts);
+    }
+
+    @Override
+    public Collection<Contract> getAllContractsByUser(User user) {
+        return decoratedContractDataService.getAllContractsByUser(user);
+    }
+
+    @Override
+    public Collection<Contract> getAllContractsByProduct(Product prdct) {
+        return decoratedContractDataService.getAllContractsByProduct(prdct);
+    }
 
 }

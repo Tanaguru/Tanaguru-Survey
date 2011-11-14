@@ -75,4 +75,16 @@ public interface SurveyList {
      */
     void setDescription(String surveyListDescription);
 
+    /**
+     * 
+     * @return
+     */
+    int getNumberOfContracts();
+
+    /**
+     * 
+     * @param numberOfContracts
+     */
+    void setNumberOfContracts(int numberOfContracts);
+
 }

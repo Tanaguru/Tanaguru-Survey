@@ -15,6 +15,16 @@
         </property>
     </bean>
 
+    <!-- tanaguru imports -->
+    <import resource="classpath:conf/context/beans-audit.xml"/>
+    <import resource="classpath:conf/context/beans-factories.xml"/>
+    <import resource="classpath:conf/context/beans-statistics.xml"/>
+
+    <!-- tgol imports -->
+    <import resource="classpath:conf/context/beans-audit.xml"/>
+    <import resource="classpath:conf/context/beans-factories.xml"/>
+    <import resource="classpath:conf/context/beans-statistics.xml"/>
+
     <!-- tanaguru-survey imports -->
     <import resource="tanaguru-survey-beans-decorator.xml"/>
     <import resource="tanaguru-survey-beans-factories.xml"/>

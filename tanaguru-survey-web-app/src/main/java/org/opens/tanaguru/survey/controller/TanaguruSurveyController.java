@@ -25,6 +25,7 @@ import org.opens.tanaguru.survey.exception.ForbiddenUserException;
 import org.opens.tanaguru.survey.util.TanaguruSurveyParamKeyStore;
 import org.opens.tanaguru.survey.util.TanaguruSurveyViewKeyStore;
 import org.opens.tanaguru.survey.view.data.factory.DetailedSurveyListFactory;
+import org.opens.tanaguru.survey.view.data.factory.SynthesisDataFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -44,35 +45,41 @@ public class TanaguruSurveyController {
     public void setDetailedSurveyListFactory(DetailedSurveyListFactory detailedSurveyListFactory) {
         this.detailedSurveyListFactory = detailedSurveyListFactory;
     }
+    
+    private SynthesisDataFactory synthesisDataFactory;
+    @Autowired
+    public void setSynthesisDataFactory(SynthesisDataFactory synthesisDataFactory) {
+        this.synthesisDataFactory = synthesisDataFactory;
+    }
 
     public TanaguruSurveyController() {
         super();
     }
 
-    @RequestMapping(value=TanaguruSurveyViewKeyStore.INDEX_URL, method=RequestMethod.GET)
+    @RequestMapping(value=TanaguruSurveyViewKeyStore.CATEGORIES_URL, method=RequestMethod.GET)
     public String displayIndexPage(Model model) {
         model.addAttribute(
                 TanaguruSurveyParamKeyStore.SURVEY_LIST_KEY,
                 detailedSurveyListFactory.getSurveyListCollection());
-        return TanaguruSurveyViewKeyStore.INDEX_VIEW_NAME;
+        return TanaguruSurveyViewKeyStore.CATEGORIES_VIEW_NAME;
     }
 
-    @RequestMapping(value=TanaguruSurveyViewKeyStore.URL_LIST_URL, method=RequestMethod.GET)
+    @RequestMapping(value=TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_URL, method=RequestMethod.GET)
     public String displayUrlListPage(
             @RequestParam(TanaguruSurveyParamKeyStore.SURVEY_LIST_KEY) String listUser,
             Model model) throws ForbiddenUserException {
         model.addAttribute(
                 TanaguruSurveyParamKeyStore.DETAILED_SURVEY_LIST_KEY,
-                detailedSurveyListFactory.createDetailedSurveyList(listUser));
-        return TanaguruSurveyViewKeyStore.URL_LIST_VIEW_NAME;
+                detailedSurveyListFactory.createDetailedSurveyList(listUser, true));
+        return TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_VIEW_NAME;
     }
     
-    @RequestMapping(value=TanaguruSurveyViewKeyStore.TOP_LIST_URL, method=RequestMethod.GET)
+    @RequestMapping(value=TanaguruSurveyViewKeyStore.INDEX_URL, method=RequestMethod.GET)
     public String displayTopListPage(Model model) {
-//        model.addAttribute(
-//                TanaguruSurveyParamKeyStore.SURVEY_LIST_KEY,
-//                surveyListFactory.getSurveyListCollection());
-        return TanaguruSurveyViewKeyStore.TOP_LIST_VIEW_NAME;
+        model.addAttribute(
+                TanaguruSurveyParamKeyStore.SYNTHESIS_DATA_KEY,
+                synthesisDataFactory.createSynthesisData());
+        return TanaguruSurveyViewKeyStore.INDEX_VIEW_NAME;
     }
 
 }

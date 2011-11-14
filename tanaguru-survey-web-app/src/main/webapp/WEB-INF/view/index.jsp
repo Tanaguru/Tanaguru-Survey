@@ -1,34 +1,60 @@
+<%@taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
+<compress:html>
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page pageEncoding="UTF-8"%>
 <%@page language="java"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" lang="${pageContext.response.locale}">
+<%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<!DOCTYPE html>
+<html lang="${pageContext.response.locale}">
     <c:set var="pageTitle" scope="page">
         <fmt:message key="index.pageTitle"/>
     </c:set>
+    <c:set var="pageMetaDescription" scope="page">
+        <fmt:message key="index.meta"/>
+    </c:set>
     <%@include file="template/head.jsp" %>
-    <body id="ts-index" class="tgm">
-        <div id="meta-border">
-            <div class="yui3-g">
-                <div class="yui3-u-1">
-                    <h1>
-                        <fmt:message key="index.h1"/>
-                    </h1>
-                </div><!-- class="yui3-u-1" -->
-                <div class="yui3-u-1">
-                <c:forEach var="surveyList" items="${surveyList}" varStatus="pSurveyList">
-                    <div class="yui3-u-1">
-                        <p><a href="<c:url value="/url-list.html?surveyList=${surveyList.id}"/>">${surveyList.name}</a> : ${surveyList.label} -> <a href="<c:url value="/top-list.html?surveyList=${surveyList.name}"/>">top 5 list</a></p>
-                    </div>
-                </c:forEach>
-                </div><!-- class="yui3-u-1" -->
-            </div><!-- class="yui3-g" -->
-        </div>
-        <%@include file="template/footer.jsp" %>
+    <body id="tgs-categories">
+        <%@include file="template/top-bar.jsp" %>
+        <div class="container">
+            <!-- Main hero unit for a primary marketing message or call to action -->
+            <div class="hero-unit">
+                <h1><fmt:message key="index.h1"/></h1>
+                <p><fmt:message key="index.mainText"/></p>
+                <p><fmt:message key="index.numberOfSites"><fmt:param>${synthesisData.totalNumberOfMonitoredSite}</fmt:param></fmt:message></p>
+            </div><!-- class="hero-unit" -->
+            <div class="row">
+                <div class="span16">
+                    <h2><fmt:message key="index.spotlight"/></h2>
+                </div><!-- class="span16" -->
+            </div><!-- class="row" -->
+            <c:set var="pickedListSize" scope="page">
+                ${fn:length(synthesisData.spotlightSurveyList)}
+            </c:set>
+            <c:forEach var="surveyList" items="${synthesisData.spotlightSurveyList}" varStatus="pSurveyList">
+            <c:if test="${pSurveyList.index % 2 == 0}">
+            <div class="row">
+            </c:if>
+                <div class="span8">
+                    <h3>${surveyList.name}</h3>
+                    <ol class="top5">
+                        <c:forEach var="contractResult" items="${surveyList.topContractCollection}" begin="0" end="4">
+                        <li><a href="${contractResult.url}">${contractResult.label}</a> <%@include file="template/score.jsp" %> </li>
+                        </c:forEach>
+                    </ol>
+                    <p>
+                        <a class="btn" href="<c:url value="/categories-detailed.html?surveyList=${surveyList.id}"/>">
+                            <fmt:message key="index.seeCategory"><fmt:param>${surveyList.name}</fmt:param></fmt:message>&raquo;
+                        </a>
+                    </p>
+                </div><!-- class="span8" -->
+            <c:if test="${pSurveyList.index+1 == pickedListSize || pSurveyList.index % 2 == 1}">
+            </div><!-- class="row" -->
+            </c:if>
+            </c:forEach>
+            <%@include file="template/footer.jsp" %>
+        </div><!-- class="container" -->
     </body>
 </html>
+</compress:html>

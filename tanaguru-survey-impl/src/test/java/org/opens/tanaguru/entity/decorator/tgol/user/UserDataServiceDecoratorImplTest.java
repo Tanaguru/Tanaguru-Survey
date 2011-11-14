@@ -24,8 +24,7 @@ package org.opens.tanaguru.entity.decorator.tgol.user;
 import java.util.List;
 import javax.persistence.NoResultException;
 import junit.framework.TestCase;
-import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDAOMock;
-import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDataServiceMock;
+import org.opens.tanaguru.survey.test.util.DecoratorFactory;
 import org.opens.tgol.entity.user.User;
 
 /**
@@ -39,23 +38,23 @@ public class UserDataServiceDecoratorImplTest extends TestCase {
     }
 
     public void testGetListUser() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
-        udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
+        UserDataServiceDecorator udsd = DecoratorFactory.getUserDataServiceDecorator();
         List<User> userList = udsd.getListUser("user");
         assertEquals(6, userList.size());
         int i = 1;
         for (User user : userList) {
-            assertEquals("user"+i+"FromDAO@tanaguru.org", user.getEmail1());
+            assertEquals("user"+i+"FromDAO", user.getName());
             i++;
+            // the 2 first user of UserDAOMock have a name
+            if (i==2) {
+                break;
+            }
         }
     }
 
     public void testGetUserFromEmail() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
-        udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
-        User user = udsd.getUserFromEmail("user1FromDataService@tanaguru.org");
+        UserDataServiceDecorator udsd = DecoratorFactory.getUserDataServiceDecorator();
+        User user = udsd.getUserFromEmail("user1@tanaguru.org");
         assertEquals("user1FromDataService", user.getName());
         try {
             user = udsd.getUserFromEmail("user1FromDAO");
@@ -70,11 +69,9 @@ public class UserDataServiceDecoratorImplTest extends TestCase {
     }
 
     public void testGetUserFromName() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
-        udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
+        UserDataServiceDecorator udsd = DecoratorFactory.getUserDataServiceDecorator();
         User user = udsd.getUserFromName("user2FromDataService");
-        assertEquals("user2FromDataService@tanaguru.org", user.getEmail1());
+        assertEquals("user2FirstNameFromDataService", user.getFirstName());
         try {
             user = udsd.getUserFromName("user2FromDAO");
         } catch (NoResultException nre) {
@@ -88,12 +85,9 @@ public class UserDataServiceDecoratorImplTest extends TestCase {
     }
 
     public void testIsAccountActivated() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
-        udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
-        assertTrue(udsd.isAccountActivated("user1FromDataService@tanaguru.org"));
-        assertFalse(udsd.isAccountActivated("user1FromDAO@tanaguru.org"));
-        assertFalse(udsd.isAccountActivated(null));
+        UserDataServiceDecorator udsd = DecoratorFactory.getUserDataServiceDecorator();
+        assertTrue(udsd.isAccountActivated("callFromDataService"));
+        assertFalse(udsd.isAccountActivated("notCalledFromDAO"));
     }
 
 }

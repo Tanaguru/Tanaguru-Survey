@@ -21,18 +21,32 @@
  */
 package org.opens.tanaguru.entity.decorator.tgol.contract;
 
+import java.util.Collection;
+import org.opens.tanaguru.survey.view.data.ContractResult;
+import org.opens.tgol.entity.service.contract.ContractDataService;
+
 
 /**
  *
  * @author jkowalczyk
  */
-public interface ContractDataServiceDecorator {
+public interface ContractDataServiceDecorator extends ContractDataService{
 
-//    /**
-//     *
-//     * @param user
-//     * @return
-//     */
-//    public List<Contract> getContractList(User user);
+    /**
+     *
+     * @param user
+     * @return
+     */
+    int getNumberOfContractsFromPrefix(String prefix);
+
+    /**
+     * 
+     * @param listUser
+     * @param nbOfContracts
+     * @return
+     */
+    Collection<ContractResult> getTopNContractsFromListUser(
+            String listUser,
+            int nbOfContracts);
 
 }

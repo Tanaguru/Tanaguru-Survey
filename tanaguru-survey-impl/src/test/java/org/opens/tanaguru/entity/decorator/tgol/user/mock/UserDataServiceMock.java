@@ -28,9 +28,9 @@ import java.util.Set;
 import javax.persistence.NoResultException;
 import org.opens.tanaguru.sdk.entity.dao.GenericDAO;
 import org.opens.tanaguru.sdk.entity.factory.GenericFactory;
+import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tgol.entity.service.user.UserDataService;
 import org.opens.tgol.entity.user.User;
-import org.opens.tgol.entity.user.UserImpl;
 
 /**
  *
@@ -41,12 +41,36 @@ public class UserDataServiceMock implements UserDataService{
     private List<User> userList = new ArrayList<User>();
 
     public UserDataServiceMock(){
-        userList.add(createUser("user1FromDataService@tanaguru.org", "user1FromDataService", "user1FirstNameFromDataService", true));
-        userList.add(createUser("user2FromDataService@tanaguru.org", "user2FromDataService", "user2FirstNameFromDataService", false));
-        userList.add(createUser("user3FromDataService@tanaguru.org", "", "", true));
-        userList.add(createUser("user4FromDataService@tanaguru.org", null, null, false));
-        userList.add(createUser("user5FromDataService@tanaguru.org", "", null, false));
-        userList.add(createUser("user6FromDataService@tanaguru.org", null, "", false));
+        userList.add(EntityFactory.createUser(
+                "user1@tanaguru.org",
+                "user1FromDataService",
+                "user1FirstNameFromDataService",
+                true));
+        userList.add(EntityFactory.createUser(
+                "user2@tanaguru.org",
+                "user2FromDataService",
+                "user2FirstNameFromDataService",
+                false));
+        userList.add(EntityFactory.createUser(
+                "user3@tanaguru.org",
+                "",
+                "",
+                true));
+        userList.add(EntityFactory.createUser(
+                "user4@tanaguru.org",
+                null,
+                null,
+                false));
+        userList.add(EntityFactory.createUser(
+                "user5@tanaguru.org",
+                "",
+                null,
+                false));
+        userList.add(EntityFactory.createUser(
+                "user6@tanaguru.org",
+                null,
+                "",
+                false));
     }
 
     @Override
@@ -71,21 +95,7 @@ public class UserDataServiceMock implements UserDataService{
 
     @Override
     public boolean isAccountActivated(String email) {
-        for (User user : userList) {
-            if (user.getEmail1().equalsIgnoreCase(email)) {
-                return user.isAccountActivated();
-            }
-        }
-        return false;
-    }
-
-    private User createUser (String email, String name, String firstName, boolean isActivated)  {
-        User user = new UserImpl();
-        user.setEmail1(email);
-        user.setName(name);
-        user.setFirstName(firstName);
-        user.setAccountActivation(isActivated);
-        return user;
+        return email.contains("DataService") ? true : false;
     }
 
     @Override

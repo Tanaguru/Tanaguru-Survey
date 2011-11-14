@@ -57,12 +57,19 @@ public class SurveyListImplTest extends TestCase {
         assertEquals("Description", surveyList.getDescription());
     }
 
+    public void testSetGetNumberOfContracts() {
+        SurveyList surveyList = new SurveyListImpl();
+        surveyList.setNumberOfContracts(10);
+        assertEquals(10, surveyList.getNumberOfContracts());
+    }
+
     public void testConstructor() {
-        SurveyList surveyList = new SurveyListImpl("list-test", "Name", "Label", "Description");
+        SurveyList surveyList = new SurveyListImpl("list-test", "Name", "Label", "Description", 10);
         assertEquals("list-test", surveyList.getId());
         assertEquals("Description", surveyList.getDescription());
         assertEquals("Label", surveyList.getLabel());
         assertEquals("Name", surveyList.getName());
+        assertEquals(10, surveyList.getNumberOfContracts());
     }
     
 }

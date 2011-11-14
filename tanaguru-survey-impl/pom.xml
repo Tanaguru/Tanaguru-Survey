@@ -22,6 +22,11 @@
         </dependency>
         <dependency>
             <groupId>${tanaguruWebappGroupId}</groupId>
+            <artifactId>tgol-data-presentation</artifactId>
+            <version>${tanaguruWebappVersion}</version>
+        </dependency>
+        <dependency>
+            <groupId>${tanaguruWebappGroupId}</groupId>
             <artifactId>tgol-si</artifactId>
             <version>${tanaguruWebappVersion}</version>
             <scope>test</scope>

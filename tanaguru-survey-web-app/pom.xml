@@ -103,5 +103,30 @@
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.googlecode.htmlcompressor</groupId>
+            <artifactId>htmlcompressor</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+
     </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+<!--                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+            <plugin>-->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+        </plugins>
+        <finalName>tanaguru-survey-web-app-${tanaguruSurveyVersion}</finalName>
+    </build>
 </project>

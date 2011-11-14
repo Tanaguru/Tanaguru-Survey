@@ -14,11 +14,14 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
+                <value>categories-I18N</value>
+                <value>categories-detailed-I18N</value>
                 <value>exception-I18N</value>
-                <value>index-I18N</value>
                 <value>footer-I18N</value>
-                <value>top-list-I18N</value>
-                <value>url-list-I18N</value>
+                <value>index-I18N</value>
+                <value>top-bar-I18N</value>
+<!--                <value>top-list-I18N</value>
+                <value>url-list-I18N</value>-->
 	    </list>
 	</property>
     </bean>

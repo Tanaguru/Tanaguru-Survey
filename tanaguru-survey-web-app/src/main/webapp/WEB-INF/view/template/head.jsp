@@ -4,17 +4,28 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta http-equiv="Author" content="Open-S.com // Jérôme Kowalczyk" lang="fr" />
-    <title>
-        ${pageTitle}
-    </title>
-    <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/combo?3.2.0/build/cssreset/reset-min.css&amp;3.2.0/build/cssgrids/grids-min.css&amp;3.2.0/build/cssfonts/fonts-min.css&amp;3.2.0/build/cssbase/base-min.css" />
-    <link rel="stylesheet" type="text/css" href="<c:url value="/Css/tgm.css"/>" />
-    <link rel="icon" type="image/ico" href="<c:url value="/Images/tanaguru.ico"/>" />
-    <c:if test="${addWebSnapr == 'true'}">
-        <script type="text/javascript" src="http://www.websnapr.com/js/websnapr.js"></script>
-    </c:if>
+    <head>
+        <meta charset="utf-8">
+        <title>${pageTitle}</title>
+        <meta name="description" content="${pageMetaDescription}">
+        <meta name="author" content="Open-S.com">
+
+        <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+        <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Le styles -->
+        <link href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" rel="stylesheet" >
+        <link href="Css/tgs.css" rel="stylesheet">
+
+        <!-- Le fav and touch icons -->
+        <!--
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+        -->
     <c:if test="${not empty configProperties['google-analytics-code']}">
     <script type="text/javascript">
         var _gaq = _gaq || [];

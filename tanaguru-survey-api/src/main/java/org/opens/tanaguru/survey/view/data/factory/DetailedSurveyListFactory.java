@@ -33,8 +33,12 @@ public interface DetailedSurveyListFactory extends SurveyListFactory{
     /**
      * 
      * @param userName
+     * @param addContractList
      * @return
+     * @throws ForbiddenUserException
      */
-    DetailedSurveyList createDetailedSurveyList(String userName) throws ForbiddenUserException;
+    DetailedSurveyList createDetailedSurveyList(
+            String userName,
+            boolean addContractList) throws ForbiddenUserException;
 
 }

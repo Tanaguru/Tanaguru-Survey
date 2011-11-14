@@ -26,8 +26,8 @@ import java.util.LinkedList;
 import java.util.List;
 import org.opens.tanaguru.entity.dao.tgol.user.TanaguruSurveyUserDAO;
 import org.opens.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
+import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tgol.entity.user.User;
-import org.opens.tgol.entity.user.UserImpl;
 
 /**
  *
@@ -39,33 +39,33 @@ public class UserDAOMock extends AbstractJPADAO<User, Long>
     private List<User> userList = new LinkedList<User>();
 
     public UserDAOMock() {
-        userList.add(createUser(
-                "user1FromDAO@tanaguru.org",
+        userList.add(EntityFactory.createUser(
+                "user1@tanaguru.org",
                 "user1FromDAO",
                 "user1FirstNameFromDAO",
                 true));
-        userList.add(createUser(
-                "user2FromDAO@tanaguru.org",
+        userList.add(EntityFactory.createUser(
+                "user2@tanaguru.org",
                 "user2FromDAO",
                 "user2FirstNameFromDAO",
                 false));
-        userList.add(createUser(
-                "user3FromDAO@tanaguru.org",
+        userList.add(EntityFactory.createUser(
+                "user3@tanaguru.org",
                 "",
                 null,
                 false));
-        userList.add(createUser(
-                "user4FromDAO@tanaguru.org",
+        userList.add(EntityFactory.createUser(
+                "user4@tanaguru.org",
                 null,
                 "",
                 false));
-        userList.add(createUser(
-                "user5FromDAO@tanaguru.org",
+        userList.add(EntityFactory.createUser(
+                "user5@tanaguru.org",
                 null,
                 null,
                 false));
-        userList.add(createUser(
-                "user6FromDAO@tanaguru.org",
+        userList.add(EntityFactory.createUser(
+                "user6@tanaguru.org",
                 "",
                 "",
                 false));
@@ -85,15 +85,6 @@ public class UserDAOMock extends AbstractJPADAO<User, Long>
             }
         }
         return localUserList;
-    }
-
-    private User createUser (String email, String name, String firstName,boolean isActivated)  {
-        User user = new UserImpl();
-        user.setEmail1(email);
-        user.setName(name);
-        user.setFirstName(firstName);
-        user.setAccountActivation(isActivated);
-        return user;
     }
 
 }

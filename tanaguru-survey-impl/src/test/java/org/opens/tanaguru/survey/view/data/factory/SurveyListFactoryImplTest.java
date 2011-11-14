@@ -22,13 +22,13 @@
 package org.opens.tanaguru.survey.view.data.factory;
 
 import junit.framework.TestCase;
-import org.opens.tanaguru.entity.decorator.tgol.user.UserDataServiceDecoratorImpl;
-import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDAOMock;
-import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDataServiceMock;
+import org.opens.tanaguru.entity.decorator.tgol.contract.ContractDataServiceDecorator;
+import org.opens.tanaguru.entity.decorator.tgol.user.UserDataServiceDecorator;
+import org.opens.tanaguru.survey.test.util.DecoratorFactory;
+import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tanaguru.survey.view.data.SurveyList;
 import org.opens.tanaguru.survey.view.data.SurveyListImpl;
 import org.opens.tgol.entity.user.User;
-import org.opens.tgol.entity.user.UserImpl;
 
 /**
  *
@@ -47,8 +47,8 @@ public class SurveyListFactoryImplTest extends TestCase {
     }
 
     public void testCreateSurveyListWithUserParam() {
-        SurveyListFactory slf = new SurveyListFactoryImpl();
-        User user = createUser("user@tanaguru.org", "userName", "userFirstName");
+        SurveyListFactory slf = getInitialisedSurveyListFactory("user");
+        User user = EntityFactory.createUser("user@tanaguru.org", "userName", "userFirstName", true);
         SurveyList surveyList = slf.createSurveyList(user);
         assertEquals("userName", surveyList.getName());
         assertEquals("userFirstName", surveyList.getLabel());
@@ -56,12 +56,7 @@ public class SurveyListFactoryImplTest extends TestCase {
     }
 
     public void testGetSurveyListCollection() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
-        udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
-        SurveyListFactoryImpl slf = new SurveyListFactoryImpl();
-        slf.setUserDataServiceDecorator(udsd);
-        slf.setUserListPrefix("user");
+        SurveyListFactory slf = getInitialisedSurveyListFactory("user");
         int i = 1;
         for (SurveyList surveyList : slf.getSurveyListCollection()) {
             assertEquals("user"+i+"FromDAO", surveyList.getName());
@@ -71,12 +66,14 @@ public class SurveyListFactoryImplTest extends TestCase {
         }
     }
 
-    private User createUser (String email, String name, String firstName)  {
-        User user = new UserImpl();
-        user.setEmail1(email);
-        user.setName(name);
-        user.setFirstName(firstName);
-        return user;
+    private SurveyListFactory getInitialisedSurveyListFactory(String userListPrefix) {
+        UserDataServiceDecorator udsd = DecoratorFactory.getUserDataServiceDecorator();
+        ContractDataServiceDecorator cdsd = DecoratorFactory.getContractDataServiceDecorator();
+        SurveyListFactoryImpl slf = new SurveyListFactoryImpl();
+        slf.setUserDataServiceDecorator(udsd);
+        slf.setContractDataService(cdsd);
+        slf.setUserListPrefix(userListPrefix);
+        return slf;
     }
 
 }

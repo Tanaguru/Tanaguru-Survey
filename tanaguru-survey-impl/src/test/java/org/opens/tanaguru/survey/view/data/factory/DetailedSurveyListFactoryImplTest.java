@@ -22,15 +22,11 @@
 package org.opens.tanaguru.survey.view.data.factory;
 
 import junit.framework.TestCase;
-import org.opens.tanaguru.entity.decorator.tgol.contract.mock.ContractDataServiceMock;
-import org.opens.tanaguru.entity.decorator.tgol.user.UserDataServiceDecoratorImpl;
-import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDAOMock;
-import org.opens.tanaguru.entity.decorator.tgol.user.mock.UserDataServiceMock;
+import org.opens.tanaguru.entity.decorator.tgol.contract.ContractDataServiceDecorator;
+import org.opens.tanaguru.entity.decorator.tgol.user.UserDataServiceDecorator;
 import org.opens.tanaguru.survey.exception.ForbiddenUserException;
-import org.opens.tanaguru.survey.view.data.SurveyList;
-import org.opens.tanaguru.survey.view.data.SurveyListImpl;
-import org.opens.tgol.entity.user.User;
-import org.opens.tgol.entity.user.UserImpl;
+import org.opens.tanaguru.survey.test.util.DecoratorFactory;
+import org.opens.tanaguru.survey.view.data.DetailedSurveyList;
 
 /**
  *
@@ -43,61 +39,63 @@ public class DetailedSurveyListFactoryImplTest extends TestCase {
     }
 
     public void testCreateSurveyList() {
-        UserDataServiceDecoratorImpl udsd = new UserDataServiceDecoratorImpl();
-        udsd.setEntityDao(new UserDAOMock());
-        udsd.setUserDataService(new UserDataServiceMock());
-        DetailedSurveyListFactoryImpl dslf = new DetailedSurveyListFactoryImpl();
-        dslf.setUserListPrefix("user");
-        dslf.setUserDataServiceDecorator(udsd);
-        dslf.setContractDataService(new ContractDataServiceMock());
-        SurveyList surveyList = dslf.createDetailedSurveyList("user1FromDataService@tanaguru.org");
+        DetailedSurveyListFactory dslf = getInitialisedSurveyListFactory("user");
+        DetailedSurveyList surveyList = dslf.createDetailedSurveyList("user1@tanaguru.org", true);
         assertEquals("user1FromDataService", surveyList.getName());
         assertEquals("user1FirstNameFromDataService", surveyList.getLabel());
+        assertEquals(2, surveyList.getContractCollection().size());
+        assertNull(surveyList.getDescription());
+        surveyList = dslf.createDetailedSurveyList("user1@tanaguru.org", false);
+        assertEquals("user1FromDataService", surveyList.getName());
+        assertEquals("user1FirstNameFromDataService", surveyList.getLabel());
+        assertEquals(0, surveyList.getContractCollection().size());
         assertNull(surveyList.getDescription());
         try {
-            surveyList = dslf.createDetailedSurveyList("user3FromDataService@tanaguru.org");
+            surveyList = dslf.createDetailedSurveyList("user3@tanaguru.org", true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("user4FromDataService@tanaguru.org");
+            surveyList = dslf.createDetailedSurveyList("user4@tanaguru.org", true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("user5FromDataService@tanaguru.org");
+            surveyList = dslf.createDetailedSurveyList("user5@tanaguru.org", true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("user6FromDataService@tanaguru.org");
+            surveyList = dslf.createDetailedSurveyList("user6@tanaguru.org", true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         dslf.setUserListPrefix("other-prefix");
         try {
-            surveyList = dslf.createDetailedSurveyList("user1FromDataService@tanaguru.org");
+            surveyList = dslf.createDetailedSurveyList("user1@tanaguru.org", true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("");
+            surveyList = dslf.createDetailedSurveyList("", true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList(null);
+            surveyList = dslf.createDetailedSurveyList(null, true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
     }
 
-    private User createUser (String email, String name, String firstName)  {
-        User user = new UserImpl();
-        user.setEmail1(email);
-        user.setName(name);
-        user.setFirstName(firstName);
-        return user;
+    public static DetailedSurveyListFactory getInitialisedSurveyListFactory(String userListPrefix) {
+        UserDataServiceDecorator udsd = DecoratorFactory.getUserDataServiceDecorator();
+        ContractDataServiceDecorator cdsd = DecoratorFactory.getContractDataServiceDecorator();
+        DetailedSurveyListFactoryImpl slf = new DetailedSurveyListFactoryImpl();
+        slf.setUserDataServiceDecorator(udsd);
+        slf.setContractDataService(cdsd);
+        slf.setUserListPrefix(userListPrefix);
+        return slf;
     }
 
 }
