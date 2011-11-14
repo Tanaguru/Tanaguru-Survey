@@ -71,7 +71,7 @@ public class SurveyListImpl implements SurveyList {
         this.description = surveyListDescription;
     }
 
-    int numberOfContracts=0;
+    private int numberOfContracts=0;
     @Override
     public int getNumberOfContracts() {
         return numberOfContracts;

@@ -100,12 +100,7 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
         if (LOGGER.isDebugEnabled()) {
             beginProcessDate = Calendar.getInstance().getTime();
         }
-        Collections.sort(contractCollection, new Comparator<Contract>() {
-            @Override
-            public int compare(Contract t1, Contract t2) {
-                return t1.getLabel().compareTo(t2.getLabel());
-            }
-        });
+        Collections.sort(contractCollection, new ContractComparator());
         if (LOGGER.isDebugEnabled()) {
             endProcessDate = Calendar.getInstance().getTime();
             LOGGER.debug("Sorting contract collection by alphabetical order took " + (endProcessDate.getTime() - beginProcessDate.getTime()) + " ms");
@@ -131,6 +126,16 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
         if (LOGGER.isDebugEnabled()) {
             endProcessDate = Calendar.getInstance().getTime();
             LOGGER.debug("Retrieving top contractResults for  " +userId + " took "+ (endProcessDate.getTime() - beginProcessDate.getTime()) + " ms");
+        }
+    }
+
+    /**
+     * private class to sort contract regarding the label alphabetical order
+     */
+    private static class ContractComparator implements Comparator<Contract> {
+        @Override
+        public int compare(Contract t1, Contract t2) {
+            return t1.getLabel().compareTo(t2.getLabel());
         }
     }
 

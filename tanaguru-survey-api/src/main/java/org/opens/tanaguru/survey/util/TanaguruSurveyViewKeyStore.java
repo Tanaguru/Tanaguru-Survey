@@ -27,6 +27,11 @@ package org.opens.tanaguru.survey.util;
  */
 public final class TanaguruSurveyViewKeyStore {
 
+    /**
+     * Private constructor for utility class
+     */
+    private TanaguruSurveyViewKeyStore(){}
+
     public static final String INDEX_VIEW_NAME="index";
     public static final String CATEGORIES_VIEW_NAME="categories";
     public static final String CATEGORIES_DETAILED_VIEW_NAME="categories-detailed";

@@ -30,7 +30,7 @@ import java.util.LinkedList;
  */
 public final class SynthesisDataImpl implements SynthesisData {
 
-    int totalNumberOfMonitoredSite;
+    private int totalNumberOfMonitoredSite;
     @Override
     public int getTotalNumberOfMonitoredSite() {
         return totalNumberOfMonitoredSite;
