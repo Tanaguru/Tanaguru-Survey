@@ -8,6 +8,7 @@
         <property name="locations">
             <list>
                 <value>file:///etc/tanaguru-survey/tanaguru-survey.conf</value>
+                <value>file:///etc/tanaguru-survey/google-code.properties</value>
             </list>
         </property>
         <property name="fileEncoding">

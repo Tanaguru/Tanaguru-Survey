@@ -30,9 +30,11 @@ import java.util.LinkedList;
 import java.util.List;
 import org.apache.log4j.Logger;
 import org.opens.tanaguru.entity.decorator.tgol.contract.ContractDataServiceDecorator;
+import org.opens.tanaguru.entity.decorator.tgol.user.UserDataServiceDecorator;
 import org.opens.tanaguru.survey.view.data.DetailedSurveyList;
 import org.opens.tanaguru.survey.view.data.SynthesisData;
 import org.opens.tanaguru.survey.view.data.SynthesisDataImpl;
+import org.opens.tgol.entity.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -68,6 +70,12 @@ public class SynthesisDataFactoryImpl implements SynthesisDataFactory {
     public void setContractDataServiceDecorator(ContractDataServiceDecorator contractDataServiceDecorator) {
         this.contractDataServiceDecorator = contractDataServiceDecorator;
     }
+    
+    private UserDataServiceDecorator userDataServiceDecorator;
+    @Autowired
+    public void setUserDataServiceDecorator(UserDataServiceDecorator userDataServiceDecorator) {
+        this.userDataServiceDecorator = userDataServiceDecorator;
+    }
 
     @Override
     public SynthesisData createSynthesisData() {
@@ -87,8 +95,12 @@ public class SynthesisDataFactoryImpl implements SynthesisDataFactory {
                 new LinkedList<DetailedSurveyList>();
         for (String listUser : spotlightList) {
             LOGGER.debug("Creating DetailedSurveyList instance for " + listUser + " as spotlighted list");
+            User user = userDataServiceDecorator.getUserFromEmail(listUser);
+            if (user != null)
             detailedSurveyListList.add(
-                    detailedSurveyListFactory.createDetailedSurveyList(listUser, false));
+                    detailedSurveyListFactory.createDetailedSurveyList(
+                    user.getId(),
+                    false));
         }
         synthesisData.setSpotlightSurveyList(detailedSurveyListList);
         return synthesisData;

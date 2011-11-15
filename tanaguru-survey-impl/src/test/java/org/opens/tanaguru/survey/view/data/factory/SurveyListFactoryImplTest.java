@@ -48,11 +48,11 @@ public class SurveyListFactoryImplTest extends TestCase {
 
     public void testCreateSurveyListWithUserParam() {
         SurveyListFactory slf = getInitialisedSurveyListFactory("user");
-        User user = EntityFactory.createUser("user@tanaguru.org", "userName", "userFirstName", true);
+        User user = EntityFactory.createUser(Long.valueOf(1),"user@tanaguru.org", "userName", "userFirstName", true);
         SurveyList surveyList = slf.createSurveyList(user);
+        assertEquals(Long.valueOf(1), surveyList.getId());
         assertEquals("userName", surveyList.getName());
         assertEquals("userFirstName", surveyList.getLabel());
-        assertNull(surveyList.getDescription());
     }
 
     public void testGetSurveyListCollection() {
@@ -61,7 +61,6 @@ public class SurveyListFactoryImplTest extends TestCase {
         for (SurveyList surveyList : slf.getSurveyListCollection()) {
             assertEquals("user"+i+"FromDAO", surveyList.getName());
             assertEquals("user"+i+"FirstNameFromDAO", surveyList.getLabel());
-            assertNull(surveyList.getDescription());
             i++;
         }
     }

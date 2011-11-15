@@ -37,19 +37,19 @@ public class TanaguruSurveyControllerTest extends TestCase {
         super(testName);
     }
 
+    public void testDisplayCategoriesPage() {
+        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
+        assertEquals(TanaguruSurveyViewKeyStore.CATEGORIES_VIEW_NAME, tsc.displayCategoriesPage(new ExtendedModelMap()));
+    }
+
+    public void testDisplayCategoriesDetailedPage () {
+        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
+        assertEquals(TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_VIEW_NAME, tsc.displayCategoriesDetailedPage(Long.valueOf(1),new ExtendedModelMap()));
+    }
+
     public void testDisplayIndexPage() {
         TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
-        assertEquals(TanaguruSurveyViewKeyStore.CATEGORIES_VIEW_NAME, tsc.displayIndexPage(new ExtendedModelMap()));
-    }
-
-    public void testDisplayUrlListPage () {
-        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
-        assertEquals(TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_VIEW_NAME, tsc.displayUrlListPage("",new ExtendedModelMap()));
-    }
-
-    public void testDisplayTopListPage() {
-        TanaguruSurveyController tsc = getInitialisedTanaguruSurveyController();
-        assertEquals(TanaguruSurveyViewKeyStore.INDEX_VIEW_NAME, tsc.displayTopListPage(new ExtendedModelMap()));
+        assertEquals(TanaguruSurveyViewKeyStore.INDEX_VIEW_NAME, tsc.displayIndexPage(new ExtendedModelMap()));
     }
 
     private TanaguruSurveyController getInitialisedTanaguruSurveyController() {

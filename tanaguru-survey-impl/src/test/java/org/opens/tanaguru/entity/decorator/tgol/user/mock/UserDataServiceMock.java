@@ -28,6 +28,7 @@ import java.util.Set;
 import javax.persistence.NoResultException;
 import org.opens.tanaguru.sdk.entity.dao.GenericDAO;
 import org.opens.tanaguru.sdk.entity.factory.GenericFactory;
+import org.opens.tanaguru.sdk.entity.service.AbstractGenericDataService;
 import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tgol.entity.service.user.UserDataService;
 import org.opens.tgol.entity.user.User;
@@ -36,37 +37,44 @@ import org.opens.tgol.entity.user.User;
  *
  * @author jkowalczyk
  */
-public class UserDataServiceMock implements UserDataService{
+public class UserDataServiceMock extends AbstractGenericDataService<User, Long>
+        implements UserDataService{
 
     private List<User> userList = new ArrayList<User>();
 
     public UserDataServiceMock(){
         userList.add(EntityFactory.createUser(
+                Long.valueOf(1),
                 "user1@tanaguru.org",
                 "user1FromDataService",
                 "user1FirstNameFromDataService",
                 true));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(2),
                 "user2@tanaguru.org",
                 "user2FromDataService",
                 "user2FirstNameFromDataService",
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(3),
                 "user3@tanaguru.org",
                 "",
                 "",
                 true));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(4),
                 "user4@tanaguru.org",
                 null,
                 null,
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(5),
                 "user5@tanaguru.org",
                 "",
                 null,
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(6),
                 "user6@tanaguru.org",
                 null,
                 "",
@@ -145,7 +153,7 @@ public class UserDataServiceMock implements UserDataService{
 
     @Override
     public void setEntityDao(GenericDAO<User, Long> gdao) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        this.entityDao = gdao;
     }
 
     @Override

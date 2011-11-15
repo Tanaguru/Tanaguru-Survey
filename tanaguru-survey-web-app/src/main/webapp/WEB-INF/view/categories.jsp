@@ -37,8 +37,9 @@
                         </fmt:message>
                     </c:set>
                         <li>
+                            <c:set var="surveyList" scope="page" value="${surveyList}"/>
                             <a href="<c:url value="/categories-detailed.html?surveyList=${surveyList.id}"/>" title="${linkTitle}">
-                                ${surveyList.name}
+                                <%@include file="template/survey-list-name.jsp" %>
                             </a>
                             (${surveyList.numberOfContracts} sites)
                         </li>
@@ -46,8 +47,8 @@
                     </ul>
                 </div><!-- class="span16 -->
             </div><!-- class="row" -->
-        <%@include file="template/footer.jsp" %>
         </div><!-- class="container" -->
+        <%@include file="template/footer.jsp" %>
     </body>
 </html>
 </compress:html>

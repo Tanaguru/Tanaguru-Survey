@@ -27,14 +27,14 @@ package org.opens.tanaguru.survey.view.data;
  */
 public class SurveyListImpl implements SurveyList {
 
-    private String id;
+    private Long id;
     @Override
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -60,17 +60,6 @@ public class SurveyListImpl implements SurveyList {
         this.label = surveyListLabel;
     }
 
-    private String description;
-    @Override
-    public String getDescription() {
-        return description;
-    }
-
-    @Override
-    public void setDescription(String surveyListDescription) {
-        this.description = surveyListDescription;
-    }
-
     private int numberOfContracts=0;
     @Override
     public int getNumberOfContracts() {
@@ -92,19 +81,16 @@ public class SurveyListImpl implements SurveyList {
      * @param id
      * @param name
      * @param label
-     * @param description
      * @param numberOfContracts
      */
     public SurveyListImpl(
-            String id,
+            Long id,
             String name,
             String label,
-            String description,
             int numberOfContracts) {
        this.id = id;
        this.name = name;
        this.label = label;
-       this.description = description;
        this.numberOfContracts = numberOfContracts;
     }
 

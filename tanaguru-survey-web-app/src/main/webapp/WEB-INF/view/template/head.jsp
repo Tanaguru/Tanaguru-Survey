@@ -1,8 +1,8 @@
 <%@page contentType="text/html;charset=UTF-8"%>
 <%@page pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@taglib uri="http://htmlcompressor.googlecode.com/taglib/compressor" prefix="compress" %>
 <head>
     <head>
         <meta charset="utf-8">
@@ -16,8 +16,8 @@
         <![endif]-->
 
         <!-- Le styles -->
-        <link href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css" rel="stylesheet" >
-        <link href="Css/tgs.css" rel="stylesheet">
+        <link href="Css/bootstrap-min.css" rel="stylesheet" >
+        <link href="Css/tgs-min.css" rel="stylesheet">
 
         <!-- Le fav and touch icons -->
         <!--

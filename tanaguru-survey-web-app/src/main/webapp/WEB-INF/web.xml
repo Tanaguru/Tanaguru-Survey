@@ -72,6 +72,10 @@
     <!-- servlet mapping declaration -->
     <servlet-mapping>
         <servlet-name>tanaguru-survey-web-app</servlet-name>
+        <url-pattern>/index.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>tanaguru-survey-web-app</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 

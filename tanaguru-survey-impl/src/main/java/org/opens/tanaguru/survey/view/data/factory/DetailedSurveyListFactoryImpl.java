@@ -50,27 +50,31 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
 
     @Override
     public DetailedSurveyList createDetailedSurveyList(
-            String surveyListId,
+            Long surveyListId,
             boolean addContractList) {
-        if (surveyListId == null || surveyListId.isEmpty()) {
+        if (surveyListId == null || surveyListId <= 0) {
             LOGGER.warn("try to create surveyList from null user.");
             throw new ForbiddenUserException();
         }
-        if (!surveyListId.startsWith(getUserListPrefix())) {
-            LOGGER.warn("try to create surveyList from forbidden user " +surveyListId +". Throws ForbiddenUserException." );
-            throw new ForbiddenUserException(surveyListId);
+        System.out.println(getUserDataServiceDecorator().getClass());
+        User user = getUserDataServiceDecorator().read(surveyListId);
+        if (user == null) {
+            LOGGER.warn("try to create surveyList from null user.");
+            throw new ForbiddenUserException();
         }
-        User user = getUserDataServiceDecorator().getUserFromEmail(surveyListId);
-        if (user == null || 
-                (isFieldNotEmpty(user.getName()) && isFieldNotEmpty(user.getFirstName())) ) {
-            throw new ForbiddenUserException(surveyListId);
+        if (!user.getEmail1().startsWith(getUserListPrefix())) {
+            LOGGER.warn("try to create surveyList from forbidden user " +surveyListId +". Throws ForbiddenUserException." );
+            throw new ForbiddenUserException(user.getEmail1());
+        }
+        if (isFieldNotEmpty(user.getName()) && isFieldNotEmpty(user.getFirstName()) ) {
+            throw new ForbiddenUserException(user.getEmail1());
         }
         DetailedSurveyList detailedSurvey = new DetailedSurveyListImpl();
-        detailedSurvey.setId(user.getEmail1());
+        detailedSurvey.setId(user.getId());
         detailedSurvey.setName(user.getName());
         detailedSurvey.setLabel(user.getFirstName());
         if (addContractList) {
-            setOrderedContractCollection(detailedSurvey, surveyListId, user);
+            setOrderedContractCollection(detailedSurvey, user.getEmail1(), user);
         }
         setTopContractCollection(detailedSurvey, user.getEmail1());
         return detailedSurvey;
@@ -79,12 +83,12 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
     /**
      *
      * @param detailedSurvey
-     * @param surveyListId
+     * @param surveyListEmail
      * @param user
      */
     private void setOrderedContractCollection(
             DetailedSurveyList detailedSurvey,
-            String surveyListId,
+            String surveyListEmail,
             User user) {
         Date beginProcessDate = null;
         Date endProcessDate = null;
@@ -96,7 +100,7 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
         if (LOGGER.isDebugEnabled()) {
             endProcessDate = Calendar.getInstance().getTime();
             LOGGER.debug("Retrieved " +contractCollection.size() +
-                " contracts for the user "  + surveyListId + " in " +(endProcessDate.getTime() - beginProcessDate.getTime()) + " ms");
+                " contracts for the user "  + surveyListEmail + " in " +(endProcessDate.getTime() - beginProcessDate.getTime()) + " ms");
         }
         if (LOGGER.isDebugEnabled()) {
             beginProcessDate = Calendar.getInstance().getTime();

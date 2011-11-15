@@ -63,7 +63,7 @@ public class TanaguruSurveyController {
      *      the categories view name
      */
     @RequestMapping(value=TanaguruSurveyViewKeyStore.CATEGORIES_URL, method=RequestMethod.GET)
-    public String displayIndexPage(Model model) {
+    public String displayCategoriesPage(Model model) {
         model.addAttribute(
                 TanaguruSurveyParamKeyStore.SURVEY_LIST_KEY,
                 detailedSurveyListFactory.getSurveyListCollection());
@@ -79,12 +79,12 @@ public class TanaguruSurveyController {
      * @throws ForbiddenUserException
      */
     @RequestMapping(value=TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_URL, method=RequestMethod.GET)
-    public String displayUrlListPage(
-            @RequestParam(TanaguruSurveyParamKeyStore.SURVEY_LIST_KEY) String listUser,
+    public String displayCategoriesDetailedPage(
+            @RequestParam(TanaguruSurveyParamKeyStore.SURVEY_LIST_KEY) Long listUserId,
             Model model) {
         model.addAttribute(
                 TanaguruSurveyParamKeyStore.DETAILED_SURVEY_LIST_KEY,
-                detailedSurveyListFactory.createDetailedSurveyList(listUser, true));
+                detailedSurveyListFactory.createDetailedSurveyList(listUserId, true));
         return TanaguruSurveyViewKeyStore.CATEGORIES_DETAILED_VIEW_NAME;
     }
 
@@ -95,7 +95,7 @@ public class TanaguruSurveyController {
      *      the index view name
      */
     @RequestMapping(value=TanaguruSurveyViewKeyStore.INDEX_URL, method=RequestMethod.GET)
-    public String displayTopListPage(Model model) {
+    public String displayIndexPage(Model model) {
         model.addAttribute(
                 TanaguruSurveyParamKeyStore.SYNTHESIS_DATA_KEY,
                 synthesisDataFactory.createSynthesisData());

@@ -86,7 +86,7 @@ public class SurveyListFactoryImpl implements SurveyListFactory {
             return null;
         }
         SurveyList surveyList = new SurveyListImpl();
-        surveyList.setId(user.getEmail1());
+        surveyList.setId(user.getId());
         surveyList.setName(user.getName());
         surveyList.setLabel(user.getFirstName());
         surveyList.setNumberOfContracts(contractDataService.getAllContractsByUser(user).size());

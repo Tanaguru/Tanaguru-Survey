@@ -40,44 +40,42 @@ public class DetailedSurveyListFactoryImplTest extends TestCase {
 
     public void testCreateSurveyList() {
         DetailedSurveyListFactory dslf = getInitialisedSurveyListFactory("user");
-        DetailedSurveyList surveyList = dslf.createDetailedSurveyList("user1@tanaguru.org", true);
-        assertEquals("user1FromDataService", surveyList.getName());
-        assertEquals("user1FirstNameFromDataService", surveyList.getLabel());
+        DetailedSurveyList surveyList = dslf.createDetailedSurveyList(Long.valueOf(1), true);
+        assertEquals("user1FromDAO", surveyList.getName());
+        assertEquals("user1FirstNameFromDAO", surveyList.getLabel());
         assertEquals(2, surveyList.getContractCollection().size());
-        assertNull(surveyList.getDescription());
-        surveyList = dslf.createDetailedSurveyList("user1@tanaguru.org", false);
-        assertEquals("user1FromDataService", surveyList.getName());
-        assertEquals("user1FirstNameFromDataService", surveyList.getLabel());
+        surveyList = dslf.createDetailedSurveyList(Long.valueOf(1), false);
+        assertEquals("user1FromDAO", surveyList.getName());
+        assertEquals("user1FirstNameFromDAO", surveyList.getLabel());
         assertEquals(0, surveyList.getContractCollection().size());
-        assertNull(surveyList.getDescription());
         try {
-            surveyList = dslf.createDetailedSurveyList("user3@tanaguru.org", true);
+            surveyList = dslf.createDetailedSurveyList(Long.valueOf(3), true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("user4@tanaguru.org", true);
+            surveyList = dslf.createDetailedSurveyList(Long.valueOf(4), true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("user5@tanaguru.org", true);
+            surveyList = dslf.createDetailedSurveyList(Long.valueOf(5), true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("user6@tanaguru.org", true);
+            surveyList = dslf.createDetailedSurveyList(Long.valueOf(6), true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         dslf.setUserListPrefix("other-prefix");
         try {
-            surveyList = dslf.createDetailedSurveyList("user1@tanaguru.org", true);
+            surveyList = dslf.createDetailedSurveyList(Long.valueOf(1), true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }
         try {
-            surveyList = dslf.createDetailedSurveyList("", true);
+            surveyList = dslf.createDetailedSurveyList(Long.valueOf(0), true);
         } catch (ForbiddenUserException fue) {
             assertTrue(true);
         }

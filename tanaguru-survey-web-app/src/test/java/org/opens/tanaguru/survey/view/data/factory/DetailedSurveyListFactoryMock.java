@@ -38,7 +38,7 @@ import org.opens.tgol.entity.user.User;
 public class DetailedSurveyListFactoryMock implements DetailedSurveyListFactory{
 
     @Override
-    public DetailedSurveyList createDetailedSurveyList(String userName, boolean addContractList) throws ForbiddenUserException {
+    public DetailedSurveyList createDetailedSurveyList(Long userNameId, boolean addContractList) throws ForbiddenUserException {
         return new DetailedSurveyList() {
 
             @Override
@@ -62,12 +62,12 @@ public class DetailedSurveyListFactoryMock implements DetailedSurveyListFactory{
             }
 
             @Override
-            public String getId() {
+            public Long getId() {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
 
             @Override
-            public void setId(String id) {
+            public void setId(Long id) {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
 
@@ -88,16 +88,6 @@ public class DetailedSurveyListFactoryMock implements DetailedSurveyListFactory{
 
             @Override
             public void setLabel(String surveyListLabel) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public String getDescription() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-
-            @Override
-            public void setDescription(String surveyListDescription) {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
 

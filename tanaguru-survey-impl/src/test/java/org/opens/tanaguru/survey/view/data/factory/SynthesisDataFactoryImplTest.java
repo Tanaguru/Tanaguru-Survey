@@ -39,6 +39,7 @@ public class SynthesisDataFactoryImplTest extends TestCase {
     public void testCreateContractResult() {
         SynthesisDataFactoryImpl sdfi = new SynthesisDataFactoryImpl();
         sdfi.setContractDataServiceDecorator(DecoratorFactory.getContractDataServiceDecorator());
+        sdfi.setUserDataServiceDecorator(DecoratorFactory.getUserDataServiceDecorator());
         sdfi.setDetailedSurveyListFactory(DetailedSurveyListFactoryImplTest.getInitialisedSurveyListFactory(null));
         sdfi.setSpotlightList(null);
         sdfi.setUserListPrefix("mock-label");

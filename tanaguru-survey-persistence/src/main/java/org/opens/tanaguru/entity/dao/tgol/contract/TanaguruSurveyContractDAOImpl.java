@@ -56,7 +56,7 @@ public class TanaguruSurveyContractDAOImpl extends AbstractJPADAO<Contract, Long
         +"INNER JOIN TGSI_ACT_WEB_RESOURCE awr ON ( a.Id_Act = awr.ACT_Id_Act ) "
         +"INNER JOIN WEB_RESOURCE_STATISTICS AS wrs ON ( awr.WEB_RESOURCE_Id_Web_Resource = wrs.Id_Web_Resource ) "
         +"WHERE u.Email1 like :listUser "
-        +"ORDER BY wrs.Raw_Mark DESC "
+        +"ORDER BY wrs.Raw_Mark DESC, c.Label ASC "
         +"LIMIT :nbOfResults ";
 
     /**

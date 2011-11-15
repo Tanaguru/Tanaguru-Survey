@@ -37,14 +37,15 @@
             <div class="row">
             </c:if>
                 <div class="span8">
-                    <h3>${surveyList.name}</h3>
+                    <c:set var="surveyList" scope="page" value="${surveyList}"/>
+                    <h3><%@include file="template/survey-list-name.jsp" %></h3>
                     <c:set var="captionClass" scope="page" value="visually-hidden"/>
                     <c:set var="topContractCollection" scope="page" value="${surveyList.topContractCollection}"/>
                     <c:set var="categoryName" scope="page" value="${surveyList.name}"/>
                     <%@include file="template/top5-table.jsp" %>
                     <p>
                         <a class="btn" href="<c:url value="/categories-detailed.html?surveyList=${surveyList.id}"/>">
-                            <fmt:message key="index.seeCategory"><fmt:param>${surveyList.name}</fmt:param></fmt:message>&raquo;
+                            <fmt:message key="index.seeCategory"><fmt:param><%@include file="template/survey-list-name.jsp" %></fmt:param></fmt:message>&raquo;
                         </a>
                     </p>
                 </div><!-- class="span8" -->
@@ -52,8 +53,8 @@
             </div><!-- class="row" -->
             </c:if>
             </c:forEach>
-            <%@include file="template/footer.jsp" %>
         </div><!-- class="container" -->
+        <%@include file="template/footer.jsp" %>
     </body>
 </html>
 </compress:html>

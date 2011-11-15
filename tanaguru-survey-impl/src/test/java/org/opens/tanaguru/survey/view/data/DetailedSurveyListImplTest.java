@@ -55,23 +55,15 @@ public class DetailedSurveyListImplTest extends TestCase {
         assertEquals("Label", DetailedSurveyList.getLabel());
     }
 
-    public void testSetGetDescription() {
-        DetailedSurveyList DetailedSurveyList = new DetailedSurveyListImpl();
-        DetailedSurveyList.setDescription("Description");
-        assertEquals("Description", DetailedSurveyList.getDescription());
-    }
-
     public void testConstructor() {
-        DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl("list-test1", "Name1", "Label1", "Description1", null, null);
-        assertEquals("list-test1", detailedSurveyList.getId());
-        assertEquals("Description1", detailedSurveyList.getDescription());
+        DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl(Long.valueOf(1), "Name1", "Label1", null, null);
+        assertEquals(Long.valueOf(1), detailedSurveyList.getId());
         assertEquals("Label1", detailedSurveyList.getLabel());
         assertEquals("Name1", detailedSurveyList.getName());
         assertTrue(detailedSurveyList.getContractCollection().isEmpty());
         assertTrue(detailedSurveyList.getTopContractCollection().isEmpty());
-        detailedSurveyList = new DetailedSurveyListImpl("list-test2", "Name2", "Label2", "Description2", EntityFactory.getContractCollection(), getContractInfoCollection());
-        assertEquals("list-test2", detailedSurveyList.getId());
-        assertEquals("Description2", detailedSurveyList.getDescription());
+        detailedSurveyList = new DetailedSurveyListImpl(Long.valueOf(2), "Name2", "Label2", EntityFactory.getContractCollection(), getContractInfoCollection());
+        assertEquals(Long.valueOf(2), detailedSurveyList.getId());
         assertEquals("Label2", detailedSurveyList.getLabel());
         assertEquals("Name2", detailedSurveyList.getName());
         assertEquals(2,detailedSurveyList.getContractCollection().size());

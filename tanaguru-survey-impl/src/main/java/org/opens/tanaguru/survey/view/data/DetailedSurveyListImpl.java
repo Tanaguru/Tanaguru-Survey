@@ -77,16 +77,14 @@ public final class DetailedSurveyListImpl extends SurveyListImpl implements Deta
      * @param contractCollection
      */
     public DetailedSurveyListImpl(
-            String id,
+            Long id,
             String name,
             String label,
-            String description,
             Collection<Contract> contractCollection,
             Collection<ContractResult> topContractCollection) {
         setId(id);
         setName(name);
         setLabel(label);
-        setDescription(description);
         setContractCollection(contractCollection);
         setTopContractCollection(topContractCollection);
     }

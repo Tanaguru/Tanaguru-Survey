@@ -24,10 +24,12 @@ package org.opens.tanaguru.entity.decorator.tgol.user.mock;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import javax.persistence.NoResultException;
 import org.opens.tanaguru.entity.dao.tgol.user.TanaguruSurveyUserDAO;
 import org.opens.tanaguru.sdk.entity.dao.jpa.AbstractJPADAO;
 import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tgol.entity.user.User;
+import org.opens.tgol.entity.user.UserImpl;
 
 /**
  *
@@ -40,31 +42,37 @@ public class UserDAOMock extends AbstractJPADAO<User, Long>
 
     public UserDAOMock() {
         userList.add(EntityFactory.createUser(
+                Long.valueOf(1),
                 "user1@tanaguru.org",
                 "user1FromDAO",
                 "user1FirstNameFromDAO",
                 true));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(2),
                 "user2@tanaguru.org",
                 "user2FromDAO",
                 "user2FirstNameFromDAO",
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(3),
                 "user3@tanaguru.org",
                 "",
                 null,
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(4),
                 "user4@tanaguru.org",
                 null,
                 "",
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(5),
                 "user5@tanaguru.org",
                 null,
                 null,
                 false));
         userList.add(EntityFactory.createUser(
+                Long.valueOf(6),
                 "user6@tanaguru.org",
                 "",
                 "",
@@ -73,7 +81,7 @@ public class UserDAOMock extends AbstractJPADAO<User, Long>
 
     @Override
     protected Class<? extends User> getEntityClass() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return UserImpl.class;
     }
 
     @Override
@@ -85,6 +93,16 @@ public class UserDAOMock extends AbstractJPADAO<User, Long>
             }
         }
         return localUserList;
+    }
+
+    @Override
+    public User read (Long key) {
+        for (User user : userList) {
+            if (user.getId()!=null && user.getId().equals(key)) {
+                return user;
+            }
+        }
+        throw new NoResultException();
     }
 
 }

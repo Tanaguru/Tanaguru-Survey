@@ -35,8 +35,8 @@ public class SurveyListImplTest extends TestCase {
 
     public void testSetGetId() {
         SurveyList surveyList = new SurveyListImpl();
-        surveyList.setId("list-test");
-        assertEquals("list-test", surveyList.getId());
+        surveyList.setId(Long.valueOf(1));
+        assertEquals(Long.valueOf(1), surveyList.getId());
     }
 
     public void testSetGetName() {
@@ -51,12 +51,6 @@ public class SurveyListImplTest extends TestCase {
         assertEquals("Label", surveyList.getLabel());
     }
 
-    public void testSetGetDescription() {
-        SurveyList surveyList = new SurveyListImpl();
-        surveyList.setDescription("Description");
-        assertEquals("Description", surveyList.getDescription());
-    }
-
     public void testSetGetNumberOfContracts() {
         SurveyList surveyList = new SurveyListImpl();
         surveyList.setNumberOfContracts(10);
@@ -64,9 +58,8 @@ public class SurveyListImplTest extends TestCase {
     }
 
     public void testConstructor() {
-        SurveyList surveyList = new SurveyListImpl("list-test", "Name", "Label", "Description", 10);
-        assertEquals("list-test", surveyList.getId());
-        assertEquals("Description", surveyList.getDescription());
+        SurveyList surveyList = new SurveyListImpl(Long.valueOf(1), "Name", "Label",  10);
+        assertEquals(Long.valueOf(1), surveyList.getId());
         assertEquals("Label", surveyList.getLabel());
         assertEquals("Name", surveyList.getName());
         assertEquals(10, surveyList.getNumberOfContracts());

@@ -35,8 +35,8 @@
                     <h1>${pageTitle}</h1>
                 </div><!-- class="span16" -->
             </div><!-- class="row" -->
-            <%@include file="template/footer.jsp" %>
         </div><!-- class="container" -->
+        <%@include file="template/footer.jsp" %>
     </body>
 </html>
 </compress:html>

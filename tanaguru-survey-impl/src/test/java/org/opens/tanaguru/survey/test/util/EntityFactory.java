@@ -38,14 +38,21 @@ public final class EntityFactory {
 
     /**
      *
+     * @param id
      * @param email
      * @param name
      * @param firstName
      * @param isActivated
      * @return
      */
-    public static User createUser (String email, String name, String firstName, boolean isActivated)  {
+    public static User createUser (
+            Long id,
+            String email,
+            String name,
+            String firstName,
+            boolean isActivated)  {
         User user = new UserImpl();
+        user.setId(id);
         user.setEmail1(email);
         user.setName(name);
         user.setFirstName(firstName);

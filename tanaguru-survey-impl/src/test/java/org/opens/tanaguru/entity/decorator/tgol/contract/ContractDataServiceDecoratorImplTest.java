@@ -60,6 +60,7 @@ public class ContractDataServiceDecoratorImplTest extends TestCase {
     public void testGetAllContractsByUser() {
         ContractDataServiceDecorator udsd = DecoratorFactory.getContractDataServiceDecorator();
         User user = EntityFactory.createUser(
+                Long.valueOf(1),
                 "user1@tanaguru.org",
                 "user1",
                 "user1FirstName",

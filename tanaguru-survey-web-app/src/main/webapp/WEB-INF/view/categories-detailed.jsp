@@ -21,17 +21,18 @@
     <%@include file="template/head.jsp" %>
     <body id="tgs-categories-detailed">
         <%@include file="template/top-bar.jsp" %>
+        <c:set var="surveyList" scope="page" value="${detailedSurveyList}"/>
         <div class="container">
             <ul class="breadcrumb">
                 <li><a href="<c:url value="/index.html"/>"><fmt:message key="index.h1"/></a> <span class="divider"></span></li>
                 <li><a href="<c:url value="/categories.html"/>"><fmt:message key="categories.h1"/></a> <span class="divider"></span></li>
-                <li class="active"><fmt:message key="categories-detailed.h1"><fmt:param>${detailedSurveyList.name}</fmt:param></fmt:message></li>
+                <li class="active"><fmt:message key="categories-detailed.h1"><fmt:param><%@include file="template/survey-list-name.jsp" %></fmt:param></fmt:message></li>
             </ul>
             <div class="row">
                 <div class="span16">
                     <h1>
                         <fmt:message key="categories-detailed.h1">
-                            <fmt:param>${detailedSurveyList.name}</fmt:param>
+                            <fmt:param><%@include file="template/survey-list-name.jsp" %></fmt:param>
                         </fmt:message>
                     </h1>
                 </div><!-- class="span16" -->
@@ -51,7 +52,7 @@
                 <div class="span16">
                     <h2>
                         <fmt:message key="categories-detailed.list">
-                            <fmt:param>${detailedSurveyList.name}</fmt:param>
+                            <fmt:param><%@include file="template/survey-list-name.jsp" %></fmt:param>
                         </fmt:message>
                     </h2>
                     <p><fmt:message key="categories-detailed.presentation">
@@ -65,8 +66,8 @@
                     </ul>
                 </div><!-- class="span16" -->
             </div><!-- class="row" -->
-            <%@include file="template/footer.jsp" %>
         </div><!-- class="container" -->
+        <%@include file="template/footer.jsp" %>
     </body>
 </html>
 </compress:html>

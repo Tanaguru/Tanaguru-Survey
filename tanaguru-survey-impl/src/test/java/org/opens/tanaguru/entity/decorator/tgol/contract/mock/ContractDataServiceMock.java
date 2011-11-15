@@ -28,6 +28,7 @@ import java.util.List;
 import java.util.Set;
 import org.opens.tanaguru.sdk.entity.dao.GenericDAO;
 import org.opens.tanaguru.sdk.entity.factory.GenericFactory;
+import org.opens.tanaguru.sdk.entity.service.AbstractGenericDataService;
 import org.opens.tanaguru.survey.test.util.EntityFactory;
 import org.opens.tgol.entity.contract.Contract;
 import org.opens.tgol.entity.product.Product;
@@ -38,17 +39,20 @@ import org.opens.tgol.entity.user.User;
  *
  * @author jkowalczyk
  */
-public class ContractDataServiceMock implements ContractDataService {
+public class ContractDataServiceMock extends AbstractGenericDataService<Contract, Long>
+        implements ContractDataService {
 
     private List<Contract> contractList = new LinkedList<Contract>();
     
     public ContractDataServiceMock(){
         User user1 = EntityFactory.createUser(
+                Long.valueOf(1),
                 "user1@tanaguru.org",
                 "user1",
                 "user1FirstName",
                 true);
         User user2 = EntityFactory.createUser(
+                Long.valueOf(2),
                 "user2@tanaguru.org",
                 "user2",
                 "user2FirstName",
