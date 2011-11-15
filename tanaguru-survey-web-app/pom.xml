@@ -111,22 +111,22 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-<!--                <groupId>org.apache.maven.plugins</groupId>
+<!--            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
                     <skipTests>true</skipTests>
                 </configuration>
-            </plugin>
-            <plugin>-->
+            </plugin>-->
+<!--        <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <configuration>
                     <warSourceExcludes>**/tgs.css</warSourceExcludes>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
-            </plugin>
-            <plugin>
+            </plugin>-->
+<!--            <plugin>
                 <groupId>com.samaxes.maven</groupId>
                 <artifactId>maven-minify-plugin</artifactId>
                 <version>1.3.5</version>
@@ -147,7 +147,7 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin>-->
         </plugins>
         <finalName>tanaguru-survey-web-app-${tanaguruSurveyVersion}</finalName>
     </build>

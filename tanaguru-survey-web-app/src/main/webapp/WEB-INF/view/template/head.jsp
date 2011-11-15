@@ -17,7 +17,7 @@
 
         <!-- Le styles -->
         <link href="Css/bootstrap-min.css" rel="stylesheet" >
-        <link href="Css/tgs-min.css" rel="stylesheet">
+        <link href="Css/tgs.css" rel="stylesheet">
 
         <!-- Le fav and touch icons -->
         <!--
