@@ -31,13 +31,13 @@ public interface SurveyList {
      *
      * @return
      */
-    String getId();
+    Long getId();
 
     /**
      *
      * @param id
      */
-    void setId(String id);
+    void setId(Long id);
     
     /**
      *
@@ -62,18 +62,6 @@ public interface SurveyList {
      * @param surveyListLabel
      */
     void setLabel(String surveyListLabel);
-
-    /**
-     *
-     * @return
-     */
-    String getDescription();
-
-    /**
-     * 
-     * @param surveyListDescription
-     */
-    void setDescription(String surveyListDescription);
 
     /**
      * 
