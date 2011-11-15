@@ -44,7 +44,6 @@
                     </h2>
                     <c:set var="captionClass" scope="page" value=""/>
                     <c:set var="topContractCollection" scope="page" value="${detailedSurveyList.topContractCollection}"/>
-                    <c:set var="categoryName" scope="page" value="${detailedSurveyList.name}"/>
                     <%@include file="template/top5-table.jsp" %>
                 </div><!-- class="span16" -->
             </div><!-- class="row" -->

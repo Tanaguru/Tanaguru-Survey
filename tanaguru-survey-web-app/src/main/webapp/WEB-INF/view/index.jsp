@@ -41,7 +41,6 @@
                     <h3><%@include file="template/survey-list-name.jsp" %></h3>
                     <c:set var="captionClass" scope="page" value="visually-hidden"/>
                     <c:set var="topContractCollection" scope="page" value="${surveyList.topContractCollection}"/>
-                    <c:set var="categoryName" scope="page" value="${surveyList.name}"/>
                     <%@include file="template/top5-table.jsp" %>
                     <p>
                         <a class="btn" href="<c:url value="/categories-detailed.html?surveyList=${surveyList.id}"/>">

@@ -5,8 +5,8 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 
-                    <table class="tg-data-table zebra-striped" summary="<fmt:message key="top5-table.summary"><fmt:param>${categoryName}</fmt:param></fmt:message>">
-                        <caption class="${captionClass}"><fmt:message key="top5-table.caption"><fmt:param>${categoryName}</fmt:param></fmt:message></caption>
+                    <table class="tg-data-table zebra-striped" summary="<fmt:message key="top5-table.summary"><fmt:param>${surveyList.name}</fmt:param></fmt:message>">
+                        <caption class="${captionClass}"><fmt:message key="top5-table.caption"><fmt:param><%@include file="survey-list-name.jsp" %></fmt:param></fmt:message></caption>
                         <thead>
                             <tr>
                                 <th scope="col" class="align-center"><fmt:message key="top5-table.rank"/></th>
