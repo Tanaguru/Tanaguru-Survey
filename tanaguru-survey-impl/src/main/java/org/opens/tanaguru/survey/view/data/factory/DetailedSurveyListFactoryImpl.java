@@ -56,7 +56,6 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
             LOGGER.warn("try to create surveyList from null user.");
             throw new ForbiddenUserException();
         }
-        System.out.println(getUserDataServiceDecorator().getClass());
         User user = getUserDataServiceDecorator().read(surveyListId);
         if (user == null) {
             LOGGER.warn("try to create surveyList from null user.");

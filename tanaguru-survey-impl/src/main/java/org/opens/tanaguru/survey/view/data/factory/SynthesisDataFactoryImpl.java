@@ -96,11 +96,12 @@ public class SynthesisDataFactoryImpl implements SynthesisDataFactory {
         for (String listUser : spotlightList) {
             LOGGER.debug("Creating DetailedSurveyList instance for " + listUser + " as spotlighted list");
             User user = userDataServiceDecorator.getUserFromEmail(listUser);
-            if (user != null)
-            detailedSurveyListList.add(
+            if (user != null) {
+                detailedSurveyListList.add(
                     detailedSurveyListFactory.createDetailedSurveyList(
                     user.getId(),
                     false));
+            }
         }
         synthesisData.setSpotlightSurveyList(detailedSurveyListList);
         return synthesisData;
