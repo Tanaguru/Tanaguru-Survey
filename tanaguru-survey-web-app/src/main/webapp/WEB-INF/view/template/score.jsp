@@ -23,4 +23,4 @@
                         <c:set var="markGrade" scope="page" value="grade-f"/>
                     </c:when>
                 </c:choose>
-                <span class="${markGrade}">${contractResult.mark}%</span>
+                <span class="${markGrade} size-3xl">${contractResult.mark}%</span>

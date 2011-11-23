@@ -95,6 +95,13 @@ body:hover .visually-hidden button {
     font-size: small;
 }
 
+/* Classes: font-size
+ * ------------------------------------------------- */
+.size-l {font-size: 11px;} /* default size from bootstrap */
+.size-xl {font-size: 15px;}
+.size-2xl {font-size: 20px;}
+.size-3xl {font-size: 25px;}
+
 /*
  * Override Bootstap
  * ==============================================
@@ -149,6 +156,10 @@ code {
 .top5-rank1 { font-size: 30px;}
 .top5-rank2 { font-size: 25px;}
 .top5-rank3 { font-size: 20px;}
+.score-explanation {
+    font-size: 11px;
+    text-align: right;
+}
 
 /*
  * Footer
@@ -182,7 +193,8 @@ footer h2 {
  * Page: home
  * ==============================================
 */
-
+#allCategoriesBlock {text-align: right;}
+.see-category-block-link {text-align: right;}
 
 /*
  * Page: article

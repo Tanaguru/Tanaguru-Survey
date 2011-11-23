@@ -24,3 +24,4 @@
                             </c:forEach>
                         </tbody>
                     </table>
+                    <p class="score-explanation"><fmt:message key="top5-table.scoreExplanation"/></p>

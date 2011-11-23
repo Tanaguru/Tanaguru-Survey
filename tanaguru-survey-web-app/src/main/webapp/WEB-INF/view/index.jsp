@@ -15,7 +15,7 @@
         <fmt:message key="index.meta"/>
     </c:set>
     <%@include file="template/head.jsp" %>
-    <body id="tgs-categories">
+    <body id="tgs-index">
         <%@include file="template/top-bar.jsp" %>
         <div class="container">
             <!-- Main hero unit for a primary marketing message or call to action -->
@@ -25,9 +25,12 @@
                 <p><fmt:message key="index.numberOfSites"><fmt:param>${synthesisData.totalNumberOfMonitoredSite}</fmt:param></fmt:message></p>
             </div><!-- class="hero-unit" -->
             <div class="row">
-                <div class="span16">
+                <div class="span8">
                     <h2><fmt:message key="index.spotlight"/></h2>
-                </div><!-- class="span16" -->
+                </div><!-- class="span8" -->
+                <div class="span8" id="allCategoriesBlock">
+                    <a href="/categories.html"><fmt:message key="index.allCategories"/></a>
+                </div><!-- class="span8" -->
             </div><!-- class="row" -->
             <c:set var="pickedListSize" scope="page">
                 ${fn:length(synthesisData.spotlightSurveyList)}
@@ -42,9 +45,9 @@
                     <c:set var="captionClass" scope="page" value="visually-hidden"/>
                     <c:set var="topContractCollection" scope="page" value="${surveyList.topContractCollection}"/>
                     <%@include file="template/top5-table.jsp" %>
-                    <p>
+                    <p class="see-category-block-link">
                         <a class="btn" href="<c:url value="/categories-detailed.html?surveyList=${surveyList.id}"/>">
-                            <fmt:message key="index.seeCategory"><fmt:param><%@include file="template/survey-list-name.jsp" %></fmt:param></fmt:message>&raquo;
+                            <fmt:message key="index.seeCategory"><fmt:param><%@include file="template/survey-list-name.jsp" %></fmt:param></fmt:message> &raquo;
                         </a>
                     </p>
                 </div><!-- class="span8" -->
