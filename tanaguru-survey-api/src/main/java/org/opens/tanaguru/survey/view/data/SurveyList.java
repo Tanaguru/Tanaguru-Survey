@@ -75,4 +75,16 @@ public interface SurveyList {
      */
     void setNumberOfContracts(int numberOfContracts);
 
+    /**
+     *
+     * @return
+     */
+    Integer getSurveyListAverage();
+
+    /**
+     *
+     * @param surveyListAverage
+     */
+    void setSurveyListAverage(Integer surveyListAverage);
+
 }

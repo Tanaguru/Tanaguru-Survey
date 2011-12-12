@@ -42,6 +42,15 @@ public class TanaguruSurveyUserDAOImpl extends AbstractJPADAO<User, Long>
     private static final String LIKE_KEY = " LIKE";
     private static final String USER_TARGET_KEY = " u";
 
+    private static final String FIND_LIST_USER_REQUEST="SELECT * FROM TGSI_USER AS u "
+            + "WHERE Email1 like :key ORDER BY Email1";
+
+    private static final String AVERAGE_RESULT_REQUEST="SELECT AVG(ROUND(wrs.Raw_Mark)) "
+            + "FROM TGSI_USER AS u INNER JOIN TGSI_CONTRACT AS c ON ( u.Id_User = c.USER_Id_User ) "
+            + "INNER JOIN TGSI_ACT AS a ON ( c.Id_Contract = a.CONTRACT_Id_Contract AND a.End_Date = (SELECT End_Date FROM TGSI_ACT WHERE CONTRACT_Id_Contract = a.CONTRACT_Id_Contract ORDER BY End_Date DESC LIMIT 1 ) ) "
+            + "INNER JOIN TGSI_ACT_WEB_RESOURCE awr ON ( a.Id_Act = awr.ACT_Id_Act ) "
+            + "INNER JOIN WEB_RESOURCE_STATISTICS AS wrs ON ( awr.WEB_RESOURCE_Id_Web_Resource = wrs.Id_Web_Resource ) "
+            + "WHERE u.Id_User = :idUser";
     /**
      *
      * @param userListPrefix
@@ -64,6 +73,9 @@ public class TanaguruSurveyUserDAOImpl extends AbstractJPADAO<User, Long>
             sb.append(".email");
             sb.append(LIKE_KEY);
             sb.append(" :key");
+            sb.append(" ORDER BY ");
+            sb.append(USER_TARGET_KEY);
+            sb.append(".name");
             Query query = entityManager.createQuery(sb.toString());
             query.setParameter("key", userListPrefix+"%");
             if (query.getResultList() != null) {
@@ -73,6 +85,21 @@ public class TanaguruSurveyUserDAOImpl extends AbstractJPADAO<User, Long>
             }
         } catch (NoResultException e) {
             return new ArrayList<User>();
+        }
+    }
+
+    @Override
+    public Integer findUserResultAverage(Long idUser) {
+        StringBuilder queryString = new StringBuilder();
+        queryString.append(AVERAGE_RESULT_REQUEST);
+        Query query = entityManager.createNativeQuery(queryString.toString());
+        query.setParameter("idUser", idUser);
+        try {
+            return ((Double)query.getSingleResult()).intValue();
+        } catch (NoResultException e) {
+            return Integer.valueOf(0);
+        } catch (NullPointerException npe) {
+            return Integer.valueOf(0);
         }
     }
 

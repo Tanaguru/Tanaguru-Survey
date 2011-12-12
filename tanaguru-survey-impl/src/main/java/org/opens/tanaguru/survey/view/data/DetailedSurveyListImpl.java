@@ -81,12 +81,14 @@ public final class DetailedSurveyListImpl extends SurveyListImpl implements Deta
             String name,
             String label,
             Collection<Contract> contractCollection,
-            Collection<ContractResult> topContractCollection) {
+            Collection<ContractResult> topContractCollection,
+            Integer surveyListAverage) {
         setId(id);
         setName(name);
         setLabel(label);
         setContractCollection(contractCollection);
         setTopContractCollection(topContractCollection);
+        setSurveyListAverage(surveyListAverage);
     }
 
 }

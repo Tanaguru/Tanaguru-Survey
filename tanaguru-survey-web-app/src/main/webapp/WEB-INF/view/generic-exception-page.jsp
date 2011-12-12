@@ -10,15 +10,15 @@
 <html lang="${pageContext.response.locale}">
     <c:set var="pageTitle" scope="page">
         <fmt:message key="${exception.exceptionMsgKey}">
-            <c:if test="${exception.userName != null}">
-                <fmt:param>${exception.userName}</fmt:param>
+            <c:if test="${exception.parameter != null}">
+                <fmt:param>${exception.parameter}</fmt:param>
             </c:if>
         </fmt:message>
     </c:set>
     <c:set var="pageMetaDescription" scope="page">
         <fmt:message key="${exception.exceptionMsgKey}">
-            <c:if test="${exception.userName != null}">
-                <fmt:param>${exception.userName}</fmt:param>
+            <c:if test="${exception.parameter != null}">
+                <fmt:param>${exception.parameter}</fmt:param>
             </c:if>
         </fmt:message>
     </c:set>

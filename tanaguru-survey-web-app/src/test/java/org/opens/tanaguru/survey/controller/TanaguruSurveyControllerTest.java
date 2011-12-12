@@ -24,6 +24,7 @@ package org.opens.tanaguru.survey.controller;
 import junit.framework.TestCase;
 import org.opens.tanaguru.survey.util.TanaguruSurveyViewKeyStore;
 import org.opens.tanaguru.survey.view.data.factory.DetailedSurveyListFactoryMock;
+import org.opens.tanaguru.survey.view.data.factory.ScopeDataServiceMock;
 import org.opens.tanaguru.survey.view.data.factory.SynthesisDataFactoryMock;
 import org.springframework.ui.ExtendedModelMap;
 
@@ -55,7 +56,13 @@ public class TanaguruSurveyControllerTest extends TestCase {
     private TanaguruSurveyController getInitialisedTanaguruSurveyController() {
         return new TanaguruSurveyController(
                 new SynthesisDataFactoryMock(),
-                new DetailedSurveyListFactoryMock());
+                new DetailedSurveyListFactoryMock(),
+                null,
+                null,
+                new ScopeDataServiceMock(),
+                null,
+                null,
+                null);
     }
 
 }

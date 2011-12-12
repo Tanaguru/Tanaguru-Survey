@@ -38,4 +38,11 @@ public interface TanaguruSurveyUserDAO extends GenericDAO<User, Long> {
      */
     List<User> findListUser(String userListPrefix);
 
+    /**
+     * 
+     * @param idUser
+     * @return
+     */
+    Integer findUserResultAverage(Long idUser);
+
 }

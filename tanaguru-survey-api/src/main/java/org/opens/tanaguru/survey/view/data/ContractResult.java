@@ -63,4 +63,16 @@ public interface ContractResult {
      */
     void setMark(int mark);
 
+    /**
+     *
+     * @return
+     */
+    Long getWebResourceId();
+
+    /**
+     * 
+     * @param webResourceId
+     */
+    void setWebResourceId(Long webResourceId);
+
 }

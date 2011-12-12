@@ -27,6 +27,77 @@
     zoom:1;
 }
 
+/* =awesome buttons
+ -------------------------------------------------- */
+/* Source: http://www.zurb.com/blog_uploads/0000/0617/buttons-03.html
+   Modified to conform to YUI fonts
+*/
+.awesome,
+.awesome:visited {
+    border: 0 none;
+    background: #222 url(http://asset.open-s.com/Corporate/TGOL/Images/alert-overlay.png) repeat-x;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+}
+
+.awesome input{
+    background-color: transparent;
+    border: medium none;
+    color: white;
+    font-weight: bold;
+}
+
+.awesome:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+.awesome:active { top: 1px; }
+
+.small.awesome,
+.small.awesome:visited { font-size: 77%;}
+
+.awesome,
+.awesome:visited,
+.medium.awesome,
+.medium.awesome:visited {
+    font-size: 100%;
+    font-weight: bold;
+    /*line-height: 1;*/
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+}
+
+.large.awesome,
+.large.awesome:visited,
+input.large.awesome {
+    font-size: 108%;
+    padding: 8px 14px 9px;
+}
+
+.green.awesome, .green.awesome:visited		{ background-color: #91bd09; }
+.green.awesome:hover						{ background-color: #749a02; }
+.blue.awesome, .blue.awesome:visited		{ background-color: #2daebf; }
+.blue.awesome:hover							{ background-color: #007d9a; }
+.red.awesome, .red.awesome:visited			{ background-color: #e33100; }
+.red.awesome:hover							{ background-color: #872300; }
+.magenta.awesome, .magenta.awesome:visited		{ background-color: #a9014b; }
+.magenta.awesome:hover							{ background-color: #630030; }
+.orange.awesome, .orange.awesome:visited		{ background-color: #ff5c00; }
+.orange.awesome:hover							{ background-color: #d45500; }
+.yellow.awesome, .yellow.awesome:visited		{ background-color: #ffb515; }
+.yellow.awesome:hover							{ background-color: #fc9200; }
+
+
 /* =visually-hidden
  -------------------------------------------------- */
 /* http://yaccessibilityblog.com/library/css-clip-hidden-content.html */
@@ -101,7 +172,7 @@ body:hover .visually-hidden button {
 .size-xl {font-size: 15px;}
 .size-2xl {font-size: 20px;}
 .size-3xl {font-size: 25px;}
-
+.size-4xl {font-size: 30px;}
 /*
  * Override Bootstap
  * ==============================================
@@ -127,16 +198,35 @@ tr:focus, tt:focus, u:focus, ul:focus, var:focus {
    outline: 1px dotted;
 }
 
+li  {
+    color:#404040;
+}
+
 /*
  * HTML tags
  * ==============================================
 */
-body {padding-top: 60px;}
+body {
+    margin-bottom: 15em;
+}
+
 code {
      font-family: monospace;
      font-weight: bold;
 }
 
+table td {
+    vertical-align: middle;
+}
+
+table tbody th {
+    text-align: left;
+}
+
+abbr, acronym {
+    border-bottom: 1px dotted;
+    cursor: help;
+}
 /*
  * Header
  * ==============================================
@@ -151,6 +241,15 @@ code {
 #bg {
 }
 
+/*
+ * Top-bar
+ * ==============================================
+*/
+.topbar{
+    margin-bottom: 1em;
+    position: static;
+}
+
 /* top5
  -------------------------------------------------- */
 .top5-rank1 { font-size: 30px;}
@@ -159,6 +258,35 @@ code {
 .score-explanation {
     font-size: 11px;
     text-align: right;
+}
+.row-top-spacing1{
+    margin-top: 1em;
+}
+.row-top-spacing2{
+    margin-top: 2em;
+}
+.row-top-spacing3{
+    margin-top: 3em;
+}
+.row-top-spacing4{
+    margin-top: 4em;
+}
+.row-bottom-spacing1{
+    margin-bottom: 1em;
+}
+.row-bottom-spacing2{
+    margin-bottom: 2em;
+}
+.row-bottom-spacing3{
+    margin-bottom: 3em;
+}
+.row-bottom-spacing4{
+    margin-bottom: 4em;
+}
+
+.top5-col-site img {
+    vertical-align: middle;
+    padding-right: 5px;
 }
 
 /*
@@ -188,13 +316,98 @@ footer h2 {
     font-size: 13px;
     line-height: 20px;
 }
+.logo {
+    vertical-align: middle;
+}
 
+.partner-logo {
+    text-align: center;
+    margin-top: 0.5em;
+}
+.social-network-footer {
+    text-align: left;
+    margin-top: 0.5em;
+}
+/*
+ * tables presenting excerpts for detailed results (by rule)
+ * --------------------------------------------------
+ */
+.rAw21-06021-col-Link-Title-Attribut,
+.rAw21-06022-col-Link-Title-Attribut,
+.rAw21-06023-col-Link-Title-Attribut {
+    width: 45%;
+}
+.rAw21-06021-col-Link-Text,
+.rAw21-06022-col-Link-Text,
+.rAw21-06023-col-Link-Text {}
+
+.rAw21-06021-col-Line-Number,
+.rAw21-06022-col-Line-Number,
+.rAw21-06023-col-Line-Number {
+    width: 10%;
+    text-align: right;
+}
+.rAw21-06041-col-Link-Title-Attribut,
+.rAw21-06042-col-Link-Title-Attribut,
+.rAw21-06043-col-Link-Title-Attribut {
+    width: 30%;
+}
+.rAw21-06041-col-Link-Text,
+.rAw21-06042-col-Link-Text,
+.rAw21-06043-col-Link-Text {
+    width: 30%;
+}
+.rAw21-06041-col-Link-Href-Attribut,
+.rAw21-06042-col-Link-Href-Attribut,
+.rAw21-06043-col-Link-Href-Attribut {
+    width: 30%;
+}
+.rAw21-06041-col-Line-Number,
+.rAw21-06042-col-Line-Number,
+.rAw21-06043-col-Line-Number {
+    text-align: right;
+}
+.rAw21-10041-col-Css-FileName,
+.rAw21-10041-col-Css-Selector{
+    width: 50%;
+}
+.r-col-Line-Number {text-align: right;}
+
+.ts-test-result-table th{
+    background-color: #FEFBF3;
+}
 /*
  * Page: home
  * ==============================================
 */
-#allCategoriesBlock {text-align: right;}
-.see-category-block-link {text-align: right;}
+#allCategoriesBlock {
+    text-align: right;
+}
+.see-category-block-link {
+    text-align: right;
+}
+#social-network-index {
+    margin-bottom: 25px;
+    margin-top: -50px;
+}
+/*
+ * Page: categories-detailed
+ * ==============================================
+*/
+.average-score-abbr {
+    padding-right: 10px;
+}
+
+.average-score {
+    text-align: right;
+}
+/*
+ * Page: error-403, error-404
+ * ==============================================
+ */
+.main-logo {
+    text-align: center;
+}
 
 /*
  * Page: article
@@ -207,6 +420,275 @@ footer h2 {
 /* article content
  -------------------------------------------------- */
 
+/* Source code Highlighter (geshi)
+ -------------------------------------------------- */
+.html4strict .de1, .html4strict .de2 {
+    margin:0;
+    padding:0;
+    background:none;
+    vertical-align:top;
+    color: #000020;
+}
+
+.html4strict {
+    font: 85% monospace;
+    color: #000066;
+    border: 1px solid #d0d0d0;
+    background-color: #f0f0f0;
+    padding-left: 2em;
+/*    overflow: scroll;*/
+}
+.html4strict a:link {
+    color: #000060;
+}
+.html4strict a:hover {
+    background-color: #f0f000;
+}
+.html4strict .head {
+    font-family: sans-serif;
+    color: #808080;
+    font-size: 77%;
+    font-weight: bold;
+    background-color: #f0f0ff;
+    border-bottom: 1px solid #d0d0d0;
+    padding: 2px;
+}
+.html4strict .foot {
+    font-family: sans-serif;
+    color: #808080;
+    font-size: 77%;
+    font-weight: bold;
+    background-color: #f0f0ff;
+    border-top: 1px solid #d0d0d0;
+    padding: 2px;
+}
+.html4strict .imp {
+    font-weight: bold;
+    color: red;
+}
+.html4strict li, .html4strict .li1 {
+    font-weight: normal;
+    vertical-align:top;
+    color: #003030;
+}
+.html4strict .ln {
+    width:1px;
+    text-align:right;
+    margin:0;
+    padding:0 2px;
+    vertical-align:top;
+}
+
+.html4strict .kw2 {
+    color: purple;
+    font-weight: bold;
+}
+.html4strict .kw3 {
+    color: #000066;
+}
+.html4strict .es0 {
+    color: #000099;
+    font-weight: bold;}
+.html4strict .br0 {
+    color: black;
+}
+.html4strict .sy0 {
+    color: black;
+}
+.html4strict .st0 {
+    color: blue;
+}
+.html4strict .nu0 {
+    color: #cc66cc;
+}
+.html4strict .sc-1 {
+    color: green; font-style: italic;
+}
+.html4strict .sc0 {
+    color: #00bbdd;
+}
+.html4strict .sc1 {
+    color: #FF4500;
+}
+.html4strict .sc2 {
+    color: #000000;
+}
+.html4strict span.xtra {
+    display:block;
+}
+
+/*
+ * Page: audit-result
+ * ==============================================
+*/
+
+#graphical-synthesis-result {
+    margin-top: 2em;
+}
+
+.audit-score {
+    font-size: 400%;
+    font-weight: bold;
+    text-align: left;
+    margin-bottom: 0.3em;
+    vertical-align: bottom;
+}
+
+#weighted-mark {
+    font-size: 13px;
+    font-weight: normal;
+    color : black;
+}
+
+.chart-object {
+    border: medium none;
+    color: black;
+}
+
+#synthesis-result .thumbnail {
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+#synthesis {
+    margin: 0 0 1em 0;
+}
+
+#work-done {
+    margin: 1em 0;
+}
+
+#tgm-piechart {
+    margin: -1.5em 0 0;
+    text-align: center;
+    width: 100%;
+}
+
+#result-synthetized-text {
+    margin: -0.3em 0 0 0;
+    text-align: center;
+    border-collapse: separate;
+}
+
+#synthesis-meta-data {
+    margin-top: 1em;
+}
+
+#result-synthetized-text .col01 {
+    text-align: left;
+    vertical-align: middle;
+    width: 50%;
+    font-weight: bold;
+}
+
+#result-synthetized-text .col02 {
+    text-align: right;
+}
+
+#synthesis-result .thumbnail {
+    padding: 0 0 0 0;
+    text-align: center;
+}
+
+.result-table{
+    margin-left: 2%;
+    margin-right: 2%;
+    width: 96%;
+}
+
+.theme {
+    border-top: 1px solid silver;
+    margin-top: 1em;
+}
+
+.theme2 {
+     margin-top: 1em;
+     margin-bottom: 1em;
+}
+
+.rule-id {
+    text-align: center;
+    vertical-align: middle;
+    width: 5%;
+}
+
+.rule-failed-count {
+    width: 12%;
+}
+
+.rule-label {
+    vertical-align: middle;
+}
+
+.rule-label ul {
+    margin: 0.25em 0 0.25em 3em;
+}
+
+.rule-result {
+    vertical-align: middle;
+    width: 15%;
+}
+
+.rule-failed-count {
+    vertical-align: middle;
+}
+
+.rule-level {
+    text-align: right;
+    vertical-align: middle;
+    width: 7%;
+}
+
+.rule-details {
+    vertical-align: middle;
+    width: 7%;
+}
+
+.project-parameters-label {
+    font-weight: normal;
+    margin-bottom: 0;
+    margin-left: 1em;
+}
+
+.project-parameters {
+    margin-top: 0.5em;
+}
+
+.project-parameters-value {
+/*    font-weight: bold;*/
+    margin-left: 0;
+}
+.passed {
+    background: url(http://asset.open-s.com/Corporate/TGOL/Images/ico-passed.png) 5px 50% no-repeat;
+    padding-left: 2em;
+    color:#46A546;
+/*    vertical-align: middle;*/
+}
+.failed {
+    background: url(http://asset.open-s.com/Corporate/TGOL/Images/ico-failed.png) 5px 50% no-repeat;
+    padding-left: 2em;
+    color:#C43C35;
+/*    vertical-align: middle;*/
+}
+.nmi {
+    background: url(http://asset.open-s.com/Corporate/TGOL/Images/ico-nmi-2.ico) 5px 50% no-repeat;
+    padding-left: 2em;
+    color:#F89406;
+/*    vertical-align: middle;*/
+}
+.na {
+    padding-left: 2em;
+    color: #6e6e6e;
+/*    vertical-align: middle;*/
+}
+.more-on-test {
+    float:right;
+    text-align:right;
+}
+
+.empty{
+    font-style: italic;
+}
 /*
  * Print styles (from Html5 Boilerplate)
  * ==============================================

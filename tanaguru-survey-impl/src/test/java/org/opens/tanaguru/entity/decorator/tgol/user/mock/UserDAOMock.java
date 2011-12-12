@@ -105,4 +105,9 @@ public class UserDAOMock extends AbstractJPADAO<User, Long>
         throw new NoResultException();
     }
 
+    @Override
+    public Integer findUserResultAverage(Long idUser) {
+        return 50;
+    }
+
 }

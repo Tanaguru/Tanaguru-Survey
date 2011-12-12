@@ -71,6 +71,17 @@ public class SurveyListImpl implements SurveyList {
         this.numberOfContracts = numberOfContracts;
     }
 
+    private Integer surveyListAverage;
+    @Override
+    public Integer getSurveyListAverage() {
+        return surveyListAverage;
+    }
+
+    @Override
+    public void setSurveyListAverage(Integer surveyListAverage) {
+        this.surveyListAverage = surveyListAverage;
+    }
+
     /**
      * Default constructor
      */
@@ -87,11 +98,13 @@ public class SurveyListImpl implements SurveyList {
             Long id,
             String name,
             String label,
-            int numberOfContracts) {
+            int numberOfContracts,
+            Integer surveyListAverage) {
        this.id = id;
        this.name = name;
        this.label = label;
        this.numberOfContracts = numberOfContracts;
+       this.surveyListAverage = surveyListAverage;
     }
 
 }

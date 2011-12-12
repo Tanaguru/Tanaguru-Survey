@@ -37,11 +37,19 @@ public final class TanaguruSurveyViewKeyStore {
     public static final String CATEGORIES_DETAILED_VIEW_NAME="categories-detailed";
     public static final String URL_LIST_VIEW_NAME="url-list";
     public static final String TOP_LIST_VIEW_NAME="top-list";
+    public static final String AUDIT_RESULT_VIEW_NAME="audit-result";
+    public static final String TEST_RESULT_VIEW_NAME="test-result";
+    public static final String ERROR_403_VIEW_NAME="error-403";
+    public static final String ERROR_404_VIEW_NAME="error-404";
 
     public static final String INDEX_URL="/index";
     public static final String CATEGORIES_URL="/categories";
     public static final String CATEGORIES_DETAILED_URL="/categories-detailed";
     public static final String URL_LIST_URL="/url-list";
     public static final String TOP_LIST_URL="/top-list";
+    public static final String AUDIT_RESULT_URL="/audit-result";
+    public static final String TEST_RESULT_URL="/test-result";
+    public static final String ERROR_403_URL="/error-403";
+    public static final String ERROR_404_URL="/error-404";
     
 }

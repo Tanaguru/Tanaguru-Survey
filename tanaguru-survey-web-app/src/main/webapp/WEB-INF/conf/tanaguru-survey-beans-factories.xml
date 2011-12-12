@@ -10,4 +10,16 @@
     <bean id="tgsiActFactory" class="org.opens.tgol.entity.factory.contract.ActFactoryImpl"/>
     <bean id="tgsiUserFactory" class="org.opens.tgol.entity.factory.user.UserFactoryImpl"/>
 
+    <!-- parameter factories beans -->
+    <bean id="parameterFactory" class="org.opens.tanaguru.entity.factory.parameterization.ParameterFactoryImpl"/>
+    <bean id="parameterElementFactory" class="org.opens.tanaguru.entity.factory.parameterization.ParameterElementFactoryImpl"/>
+    <bean id="parameterFamilyFactory" class="org.opens.tanaguru.entity.factory.parameterization.ParameterFamilyFactoryImpl"/>
+
+    <!-- audit factories beans -->
+    <bean id="processResultFactory" class="org.opens.tanaguru.entity.factory.audit.ProcessResultFactoryImpl"/>
+
+    <!-- reference factories beans -->
+    <bean id="referenceFactory" class="org.opens.tanaguru.entity.factory.reference.ReferenceFactoryImpl"/>
+    <bean id="scopeFactory" class="org.opens.tanaguru.entity.factory.reference.ScopeFactoryImpl"/>
+
 </beans>

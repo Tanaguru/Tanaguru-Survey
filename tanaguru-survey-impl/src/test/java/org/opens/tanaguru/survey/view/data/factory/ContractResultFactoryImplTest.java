@@ -41,13 +41,15 @@ public class ContractResultFactoryImplTest extends TestCase {
         assertNull(cr.getLabel());
         assertNull(cr.getUrl());
         assertEquals(0, cr.getMark());
-        cr = crfi.createContractResult("label", "url", 70);
+        cr = crfi.createContractResult("label", "url", 70, Long.valueOf(1));
         assertEquals("label", cr.getLabel());
         assertEquals("url", cr.getUrl());
+        assertEquals(Long.valueOf(1), cr.getWebResourceId());
         assertEquals(70, cr.getMark());
-        cr = crfi.createContractResult(null, null, 0);
+        cr = crfi.createContractResult(null, null, 0, Long.valueOf(1));
         assertNull(cr.getLabel());
         assertNull(cr.getUrl());
+        assertEquals(Long.valueOf(1), cr.getWebResourceId());
         assertEquals(0, cr.getMark());
     }
 

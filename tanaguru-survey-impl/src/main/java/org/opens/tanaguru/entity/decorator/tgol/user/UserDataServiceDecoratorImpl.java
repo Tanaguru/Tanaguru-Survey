@@ -53,6 +53,11 @@ public class UserDataServiceDecoratorImpl extends AbstractGenericDataService<Use
     }
 
     @Override
+    public Integer getUserResultAverage(Long idUser) {
+        return ((TanaguruSurveyUserDAO)entityDao).findUserResultAverage(idUser);
+    }
+
+    @Override
     public User getUserFromEmail(String email) {
         return decoratedUserDataService.getUserFromEmail(email);
     }

@@ -90,6 +90,7 @@ public class SurveyListFactoryImpl implements SurveyListFactory {
         surveyList.setName(user.getName());
         surveyList.setLabel(user.getFirstName());
         surveyList.setNumberOfContracts(contractDataService.getAllContractsByUser(user).size());
+        surveyList.setSurveyListAverage(userDataServiceDecorator.getUserResultAverage(user.getId()));
         return surveyList;
     }
 

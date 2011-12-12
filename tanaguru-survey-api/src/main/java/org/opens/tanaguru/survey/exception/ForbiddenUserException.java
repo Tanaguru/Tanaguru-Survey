@@ -27,20 +27,20 @@ package org.opens.tanaguru.survey.exception;
  */
 public class ForbiddenUserException extends RuntimeException{
 
-    private String userName = null;
-    public String getUserName() {
-        return userName;
+    private String parameter = null;
+    public String getParameter() {
+        return parameter;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setParameter(String parameter) {
+        this.parameter = parameter;
     }
 
     private static final String FORBIDDEN_USER_EXCEPTION_MSG_KEY = "forbidden-user-exception-msg-key";
     private static final String NULL_USER_EXCEPTION_MSG_KEY = "null-user-exception-msg-key";
 
     public String getExceptionMsgKey() {
-        if (userName != null) {
+        if (parameter != null) {
             return FORBIDDEN_USER_EXCEPTION_MSG_KEY;
         }
         return NULL_USER_EXCEPTION_MSG_KEY;
@@ -48,8 +48,8 @@ public class ForbiddenUserException extends RuntimeException{
 
     private static final long serialVersionUID = 6868141361082941720L;
 
-    public ForbiddenUserException(String userName) {
-        this.userName = userName;
+    public ForbiddenUserException(String parameter) {
+        this.parameter = parameter;
     }
 
     public ForbiddenUserException() {}

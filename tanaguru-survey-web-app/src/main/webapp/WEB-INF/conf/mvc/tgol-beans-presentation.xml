@@ -25,4 +25,8 @@
 
     <bean id="contractResultFactory" class="org.opens.tanaguru.survey.view.data.factory.ContractResultFactoryImpl"/>
 
+    <bean id="auditStatisticsFactory" class="org.opens.tgol.presentation.factory.AuditStatisticsFactory" factory-method="getInstance"/>
+    <bean id="remarksInfosFactory" class="org.opens.tgol.presentation.factory.RemarkInfosFactory" factory-method="getInstance"/>
+    <bean id="testResultFactory" class="org.opens.tgol.presentation.factory.TestResultFactory" factory-method="getInstance"/>
+
 </beans>

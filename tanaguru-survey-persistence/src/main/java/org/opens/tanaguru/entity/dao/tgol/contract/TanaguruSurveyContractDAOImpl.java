@@ -49,7 +49,7 @@ public class TanaguruSurveyContractDAOImpl extends AbstractJPADAO<Contract, Long
             + "WHERE tu.Email1 like :prefix";
 
     private static final String FIND_TOP_N_CONTRACT_QUERY =
-        "SELECT c.Label, c.Url, wrs.Raw_Mark FROM TGSI_USER AS u "
+        "SELECT c.Label, c.Url, wrs.Raw_Mark, awr.WEB_RESOURCE_Id_Web_Resource FROM TGSI_USER AS u "
         +"INNER JOIN TGSI_CONTRACT AS c ON ( u.Id_User = c.USER_Id_User ) "
         +"INNER JOIN TGSI_ACT AS a ON "
         +"( c.Id_Contract = a.CONTRACT_Id_Contract AND a.End_Date = (SELECT End_Date FROM TGSI_ACT WHERE CONTRACT_Id_Contract = a.CONTRACT_Id_Contract ORDER BY End_Date DESC LIMIT 1 ) ) "
@@ -136,7 +136,8 @@ public class TanaguruSurveyContractDAOImpl extends AbstractJPADAO<Contract, Long
             ContractResult cr = contractResultFactory.createContractResult(
                     (String)obj[0], // label
                     (String)obj[1], //url
-                    ((Float)obj[2]).intValue()); //mark
+                    ((Float)obj[2]).intValue(), //mark
+                    ((BigInteger)obj[3]).longValue()); //webResourceId
             contractResultSet.add(cr);
         }
         return contractResultSet;

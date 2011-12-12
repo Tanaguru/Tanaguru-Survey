@@ -17,7 +17,22 @@
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <property name="exceptionMappings">
             <props>
-                <prop key="org.opens.tanaguru.survey.exception.ForbiddenUserException">generic-exception-page</prop>
+                <prop key="org.opens.tanaguru.survey.exception.ForbiddenUserException">error-403</prop>
+                <prop key="org.opens.tanaguru.survey.exception.ForbiddenPageException">error-403</prop>
+                <prop key="javax.persistence.NoResultException">error-404</prop>
+                <prop key="org.springframework.web.bind.MissingServletRequestParameterException">error-404</prop>
+                <prop key="java.lang.NumberFormatException">error-404</prop>
+                <prop key="org.springframework.web.util.NestedServletException">error-404</prop>
+                <prop key="org.springframework.beans.TypeMismatchException">error-404</prop>
+            </props>
+        </property>
+        <property name="defaultStatusCode">
+            <value>404</value>
+        </property>
+        <property name="statusCodes">
+            <props>
+                <prop key="error-403">403</prop>
+                <prop key="error-404">404</prop>
             </props>
         </property>
     </bean>

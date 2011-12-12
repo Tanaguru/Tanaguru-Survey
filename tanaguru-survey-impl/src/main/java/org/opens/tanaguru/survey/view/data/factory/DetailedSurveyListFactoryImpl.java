@@ -76,6 +76,7 @@ public final class DetailedSurveyListFactoryImpl extends SurveyListFactoryImpl i
             setOrderedContractCollection(detailedSurvey, user.getEmail1(), user);
         }
         setTopContractCollection(detailedSurvey, user.getEmail1());
+        detailedSurvey.setSurveyListAverage(getUserDataServiceDecorator().getUserResultAverage(user.getId()));
         return detailedSurvey;
     }
 

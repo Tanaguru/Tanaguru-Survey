@@ -14,11 +14,26 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basenames">
             <list>
+                <value>audit-result-I18N</value>
+                <value>audit-set-up-I18N</value>
                 <value>categories-I18N</value>
                 <value>categories-detailed-I18N</value>
+                <value>contract-page-I18N</value>
+                <value>evidence-elements-I18N</value>
+                <value>error-403-I18N</value>
+                <value>error-404-I18N</value>
                 <value>exception-I18N</value>
                 <value>footer-I18N</value>
+                <value>graph-I18N</value>
                 <value>index-I18N</value>
+                <value>level-I18N</value>
+                <value>parameters-I18N</value>
+                <value>result-page-I18N</value>
+                <value>rule-I18N</value>
+                <value>rule-error-I18N</value>
+                <value>rule-result-I18N</value>
+                <value>test-result-I18N</value>
+                <value>theme-I18N</value>
                 <value>top-bar-I18N</value>
                 <value>top5-table-I18N</value>
 	    </list>

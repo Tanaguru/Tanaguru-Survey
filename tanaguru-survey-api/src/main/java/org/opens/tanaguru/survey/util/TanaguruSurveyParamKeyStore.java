@@ -35,5 +35,8 @@ public final class TanaguruSurveyParamKeyStore {
     public static final String SURVEY_LIST_KEY = "surveyList";
     public static final String DETAILED_SURVEY_LIST_KEY = "detailedSurveyList";
     public static final String SYNTHESIS_DATA_KEY = "synthesisData";
+    public static final String TEST_KEY = "test";
+    public static final String TEST_RESULT_KEY = "testResult";
+    public static final String URL_KEY = "url";
     
 }

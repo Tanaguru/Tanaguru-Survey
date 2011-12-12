@@ -9,7 +9,15 @@
 
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"/>
 
-    <context:component-scan
-        base-package="org.opens.tanaguru.survey.controller"/>
-
+<!--    <context:component-scan
+        base-package="org.opens.tanaguru.survey.controller"/>-->
+        <bean id="tanaguruSurveyController" class="org.opens.tanaguru.survey.controller.TanaguruSurveyController">
+        <property name="parametersToDisplay">
+            <map>
+                <entry key="LEVEL">
+                    <value>level</value>
+                </entry>
+            </map>
+        </property>
+        </bean>
 </beans>

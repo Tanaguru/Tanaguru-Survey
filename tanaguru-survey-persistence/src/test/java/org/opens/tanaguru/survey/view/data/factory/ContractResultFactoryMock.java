@@ -62,11 +62,21 @@ public class ContractResultFactoryMock implements ContractResultFactory{
             public void setMark(int mark) {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
+
+            @Override
+            public Long getWebResourceId() {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            @Override
+            public void setWebResourceId(Long webResourceId) {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
         };
     }
 
     @Override
-    public ContractResult createContractResult(String contractLabel, String contractUrl, int mark) {
+    public ContractResult createContractResult(String contractLabel, String contractUrl, int mark, Long webResourceId) {
         ContractResult contractResult = new ContractResult() {
             private String label;
             @Override
@@ -100,10 +110,22 @@ public class ContractResultFactoryMock implements ContractResultFactory{
             public void setMark(int mark) {
                 this.mark = mark;
             }
+
+            private Long webResourceId;
+            @Override
+            public Long getWebResourceId() {
+                return webResourceId;
+            }
+
+            @Override
+            public void setWebResourceId(Long webResourceId) {
+                this.webResourceId = webResourceId;
+            }
         };
         contractResult.setLabel(contractLabel);
         contractResult.setUrl(contractUrl);
         contractResult.setMark(mark);
+        contractResult.setWebResourceId(webResourceId);
         return contractResult;
     }
 

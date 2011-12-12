@@ -4,23 +4,23 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 
                 <c:choose>
-                    <c:when test='${contractResult.mark >= 90}'>
+                    <c:when test='${mark >= 90}'>
                         <c:set var="markGrade" scope="page" value="grade-a"/>
                     </c:when>
-                    <c:when test='${contractResult.mark < 90 && contractResult.mark >=80}'>
+                    <c:when test='${mark < 90 && mark >=80}'>
                         <c:set var="markGrade" scope="page" value="grade-b"/>
                     </c:when>
-                    <c:when test='${contractResult.mark < 80 && contractResult.mark >=70}'>
+                    <c:when test='${mark < 80 && mark >=70}'>
                         <c:set var="markGrade" scope="page" value="grade-c"/>
                     </c:when>
-                    <c:when test='${contractResult.mark < 70 && contractResult.mark >=60}'>
+                    <c:when test='${mark < 70 && mark >=60}'>
                         <c:set var="markGrade" scope="page" value="grade-d"/>
                     </c:when>
-                    <c:when test='${contractResult.mark < 60 && contractResult.mark >=50}'>
+                    <c:when test='${mark < 60 && mark >=50}'>
                         <c:set var="markGrade" scope="page" value="grade-e"/>
                     </c:when>
-                    <c:when test='${contractResult.mark < 50}'>
+                    <c:when test='${mark < 50}'>
                         <c:set var="markGrade" scope="page" value="grade-f"/>
                     </c:when>
                 </c:choose>
-                <span class="${markGrade} size-3xl">${contractResult.mark}%</span>
+                <span class="${markGrade} ${markSizeClass}">${mark}%</span>

@@ -100,6 +100,16 @@ public class DetailedSurveyListFactoryMock implements DetailedSurveyListFactory{
             public void setNumberOfContracts(int numberOfContracts) {
                 throw new UnsupportedOperationException("Not supported yet.");
             }
+
+            @Override
+            public Integer getSurveyListAverage() {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+
+            @Override
+            public void setSurveyListAverage(Integer surveyListAverage) {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
         };
     }
 

@@ -56,17 +56,19 @@ public class DetailedSurveyListImplTest extends TestCase {
     }
 
     public void testConstructor() {
-        DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl(Long.valueOf(1), "Name1", "Label1", null, null);
+        DetailedSurveyList detailedSurveyList = new DetailedSurveyListImpl(Long.valueOf(1), "Name1", "Label1", null, null, Integer.valueOf(50));
         assertEquals(Long.valueOf(1), detailedSurveyList.getId());
         assertEquals("Label1", detailedSurveyList.getLabel());
         assertEquals("Name1", detailedSurveyList.getName());
         assertTrue(detailedSurveyList.getContractCollection().isEmpty());
         assertTrue(detailedSurveyList.getTopContractCollection().isEmpty());
-        detailedSurveyList = new DetailedSurveyListImpl(Long.valueOf(2), "Name2", "Label2", EntityFactory.getContractCollection(), getContractInfoCollection());
+        assertEquals(Integer.valueOf(50),detailedSurveyList.getSurveyListAverage());
+        detailedSurveyList = new DetailedSurveyListImpl(Long.valueOf(2), "Name2", "Label2", EntityFactory.getContractCollection(), getContractInfoCollection(), Integer.valueOf(50));
         assertEquals(Long.valueOf(2), detailedSurveyList.getId());
         assertEquals("Label2", detailedSurveyList.getLabel());
         assertEquals("Name2", detailedSurveyList.getName());
         assertEquals(2,detailedSurveyList.getContractCollection().size());
+        assertEquals(Integer.valueOf(50),detailedSurveyList.getSurveyListAverage());
         assertEquals(2,detailedSurveyList.getTopContractCollection().size());
     }
 

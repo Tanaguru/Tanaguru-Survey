@@ -19,6 +19,67 @@
         <property name="entityFactory" ref="tgsiContractFactory"/>
         <property name="entityDao" ref="tsContractDAO"/>
     </bean>
+    
+    <bean name="tsProcessResultDAO" class="org.opens.tanaguru.entity.dao.tanaguru.audit.TanaguruSurveyProcessResultDAOImpl"/>
+    <bean name="tsProcessResultDataServiceDecorator" class="org.opens.tanaguru.entity.decorator.tanaguru.audit.ProcessResultDataServiceDecoratorImpl">
+        <property name="entityFactory" ref="processResultFactory"/>
+        <property name="entityDao" ref="tsProcessResultDAO"/>
+    </bean>
+    
+    <bean name="tgolWebResourceDAO" class="org.opens.tgol.entity.dao.tanaguru.subject.TgolWebResourceDAOImpl"/>
+    <bean name="webResourceDataServiceDecorator" class="org.opens.tgol.entity.decorator.tanaguru.subject.WebResourceDataServiceDecoratorImpl">
+        <property name="entityFactory" ref="webResourceFactory"/>
+        <property name="entityDao" ref="tgolWebResourceDAO"/>
+    </bean>
 
+    <bean id="webResourceDAO" class="org.opens.tanaguru.entity.dao.subject.WebResourceDAOImpl"/>
+    <bean id="webResourceDataService" class="org.opens.tanaguru.entity.service.subject.WebResourceDataServiceImpl">
+        <property name="entityFactory" ref="webResourceFactory"/>
+        <property name="entityDao" ref="webResourceDAO"/>
+    </bean>
+    
+    <bean id="processResultDAO" class="org.opens.tanaguru.entity.dao.audit.ProcessResultDAOImpl"/>
+    <bean id="ProcessResultDataService" class="org.opens.tanaguru.entity.service.audit.ProcessResultDataServiceImpl">
+        <property name="entityFactory" ref="processResultFactory"/>
+        <property name="entityDao" ref="processResultDAO"/>
+    </bean>
+
+    <bean id="statisticsDAO" class="org.opens.tgol.entity.dao.statistics.StatisticsDAOImpl"/>
+
+    <bean id="themeDAO" class="org.opens.tanaguru.entity.dao.reference.ThemeDAOImpl"/>
+    <bean id="themeDataService" class="org.opens.tanaguru.entity.service.reference.ThemeDataServiceImpl">
+        <property name="entityFactory" ref="themeFactory"/>
+        <property name="entityDao" ref="themeDAO"/>
+    </bean>
+
+    <bean id="testDAO" class="org.opens.tanaguru.entity.dao.reference.TestDAOImpl"/>
+    <bean id="testDataService" class="org.opens.tanaguru.entity.service.reference.TestDataServiceImpl">
+        <property name="entityFactory" ref="testFactory"/>
+        <property name="entityDao" ref="testDAO"/>
+    </bean>
+
+    <bean id="scopeDAO" class="org.opens.tanaguru.entity.dao.reference.ScopeDAOImpl"/>
+    <bean id="scopeDataService" class="org.opens.tanaguru.entity.service.reference.ScopeDataServiceImpl">
+        <property name="entityFactory" ref="scopeFactory"/>
+        <property name="entityDao" ref="scopeDAO"/>
+    </bean>
+
+    <bean id="parameterDAO" class="org.opens.tanaguru.entity.dao.parameterization.ParameterDAOImpl"/>
+    <bean id="parameterDataService" class="org.opens.tanaguru.entity.service.parameterization.ParameterDataServiceImpl">
+        <property name="entityDao" ref="parameterDAO"/>
+        <property name="entityFactory" ref="parameterFactory"/>
+    </bean>
+
+    <bean id="parameterElementDAO" class="org.opens.tanaguru.entity.dao.parameterization.ParameterElementDAOImpl"/>
+    <bean id="parameterElementDataService" class="org.opens.tanaguru.entity.service.parameterization.ParameterElementDataServiceImpl">
+        <property name="entityDao" ref="parameterElementDAO"/>
+        <property name="entityFactory" ref="parameterElementFactory"/>
+    </bean>
+
+    <bean id="parameterFamilyDAO" class="org.opens.tanaguru.entity.dao.parameterization.ParameterFamilyDAOImpl"/>
+    <bean id="parameterFamilyDataService" class="org.opens.tanaguru.entity.service.parameterization.ParameterFamilyDataServiceImpl">
+        <property name="entityDao" ref="parameterFamilyDAO"/>
+        <property name="entityFactory" ref="parameterFamilyFactory"/>
+    </bean>
 
 </beans>

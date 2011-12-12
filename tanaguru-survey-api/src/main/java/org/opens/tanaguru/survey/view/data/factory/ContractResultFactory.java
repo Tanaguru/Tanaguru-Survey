@@ -40,8 +40,9 @@ public interface ContractResultFactory {
      * @param contractLabel
      * @param contractUrl
      * @param mark
+     * @param webResourceId
      * @return
      */
-    ContractResult createContractResult(String contractLabel, String contractUrl, int mark);
+    ContractResult createContractResult(String contractLabel, String contractUrl, int mark, Long webResourceId);
 
 }

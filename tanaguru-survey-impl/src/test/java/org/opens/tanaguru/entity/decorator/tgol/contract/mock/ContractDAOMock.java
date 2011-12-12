@@ -82,7 +82,7 @@ public class ContractDAOMock extends AbstractJPADAO<Contract, Long>
         ContractResultFactory crf = new ContractResultFactoryImpl();
         for (Contract contract : contractList) {
             if (contract.getUser().getEmail1().equalsIgnoreCase(listUser)) {
-                contractResultCollection.add(crf.createContractResult(contract.getLabel(), contract.getUrl(), 70));
+                contractResultCollection.add(crf.createContractResult(contract.getLabel(), contract.getUrl(), 70, Long.valueOf(1)));
                 counter++;
             }
         }

@@ -31,8 +31,8 @@ import org.opens.tanaguru.survey.view.data.ContractResultImpl;
 public class ContractResultFactoryImpl implements ContractResultFactory{
 
     @Override
-    public ContractResult createContractResult(String contractLabel, String contractUrl, int mark) {
-        return new ContractResultImpl(contractUrl, contractLabel, mark);
+    public ContractResult createContractResult(String contractLabel, String contractUrl, int mark, Long webResourceId) {
+        return new ContractResultImpl(contractUrl, contractLabel, mark, webResourceId);
     }
 
     @Override

@@ -38,4 +38,11 @@ public interface UserDataServiceDecorator extends UserDataService{
      */
     List<User> getListUser(String userListPrefix);
 
+    /**
+     * 
+     * @param idUser
+     * @return
+     */
+    Integer getUserResultAverage(Long idUser);
+
 }

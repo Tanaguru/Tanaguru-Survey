@@ -40,6 +40,18 @@
             <version>${tanaguruSurveyVersion}</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>${tanaguruWebappGroupId}</groupId>
+            <artifactId>tgol-report</artifactId>
+            <version>${tanaguruWebappVersion}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>${tanaguruWebappGroupId}</groupId>
+            <artifactId>tgol-i18n</artifactId>
+            <version>${tanaguruWebappVersion}</version>
+            <scope>runtime</scope>
+        </dependency>
 
         <!-- spring dependencies -->
         <dependency>
@@ -106,6 +118,11 @@
             <groupId>com.googlecode.htmlcompressor</groupId>
             <artifactId>htmlcompressor</artifactId>
             <version>1.5.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>batik</groupId>
+            <artifactId>batik-svggen</artifactId>
         </dependency>
 
     </dependencies>

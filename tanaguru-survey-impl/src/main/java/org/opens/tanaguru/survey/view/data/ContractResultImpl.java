@@ -60,6 +60,17 @@ public class ContractResultImpl implements ContractResult{
         this.mark = mark;
     }
 
+    private Long webResourceId;
+    @Override
+    public Long getWebResourceId() {
+        return webResourceId;
+    }
+
+    @Override
+    public void setWebResourceId(Long webResourceId) {
+        this.webResourceId = webResourceId;
+    }
+
     /**
      * Default constructor
      */
@@ -69,12 +80,14 @@ public class ContractResultImpl implements ContractResult{
      * 
      * @param url
      * @param label
-     * @param makr
+     * @param mark
+     * @param webResourceId
      */
-    public ContractResultImpl(String url, String label, int mark){
+    public ContractResultImpl(String url, String label, int mark, Long webResourceId){
         this.label = label;
         this.url = url;
         this.mark = mark;
+        this.webResourceId = webResourceId;
     }
 
 }

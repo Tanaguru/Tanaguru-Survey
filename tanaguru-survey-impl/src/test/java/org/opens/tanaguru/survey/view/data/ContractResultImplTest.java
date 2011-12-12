@@ -65,11 +65,12 @@ public class ContractResultImplTest extends TestCase {
     }
 
     public void testConstructor() {
-        ContractResult contractResult = new ContractResultImpl("url", "label", 70);
+        ContractResult contractResult = new ContractResultImpl("url", "label", 70, Long.valueOf(1));
         assertEquals("label", contractResult.getLabel());
         assertEquals("url", contractResult.getUrl());
+        assertEquals(Long.valueOf(1), contractResult.getWebResourceId());
         assertEquals(70, contractResult.getMark());
-        contractResult = new ContractResultImpl(null, null, 0);
+        contractResult = new ContractResultImpl(null, null, 0, Long.valueOf(1));
         assertNull(contractResult.getLabel());
         assertNull(contractResult.getUrl());
     }

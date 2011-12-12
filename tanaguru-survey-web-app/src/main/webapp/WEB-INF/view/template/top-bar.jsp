@@ -22,6 +22,7 @@
                         <li><a href="<c:url value="/categories.html"/>"><fmt:message key="top-bar.categories"/></a></li>
                         </c:otherwise>
                     </c:choose>
+                        <li><a href="#about"><fmt:message key="footer.about"/></a></li>
                     </ul>
                     <ul class="nav secondary-nav">
                     <%
